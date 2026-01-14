@@ -1,71 +1,116 @@
+"use client";
+
 import React from 'react';
+import { motion } from 'framer-motion';
+import Magnetic from "@/components/ui/magnetic";
 
 /**
  * AboutUs Section
  * 
- * This component clones the "Who we are" and "What we do" informational section 
- * from Codex. It adheres to the dark theme styling, typography, 
- * and layout patterns defined in the design system.
+ * Updated to reflect the new agency status and services.
  */
 
 const AboutUs: React.FC = () => {
   return (
-    <section className="bg-background text-foreground section-spacing px-[5vw] flex flex-col gap-y-24 md:gap-y-40">
+    <section className="bg-black text-white py-[clamp(100px,15vw,200px)] px-[5vw] flex flex-col gap-y-24 md:gap-y-40 overflow-hidden">
       {/* Who We Are Section */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-12 items-start">
         <div className="lg:col-span-4 self-start">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-primary" />
-            <h2 className="mono-label text-muted-foreground">Who we are</h2>
+            <span className="w-2 h-2 rounded-full bg-white" />
+            <h2 className="mono-label text-muted-foreground uppercase tracking-widest">03 — Who we are</h2>
           </div>
         </div>
         <div className="lg:col-span-8">
-            <p className="section-title max-w-[900px]">
-              Codex is a people-first design studio that cares as much about your business and product as you do. We're big on honesty, collaboration, and good coffee, the foundations of every great partnership. No project is too small for our A-game and we pour the same craft and care into every brief. Our promise is simple: to guide you with a steady, nurturing hand and turn your ideas, big or small, into brands, websites, and experiences that truly matter.
-            </p>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-5xl lg:text-6xl font-normal max-w-[900px] leading-[1.1] tracking-tight"
+            >
+              We are a <span className="text-muted-foreground italic">next-gen agency</span> dedicated to scaling brands through technical excellence and creative precision. From automation to data science, we build the future of digital commerce.
+            </motion.p>
         </div>
       </div>
 
       {/* Divider */}
-      <div className="w-full h-[1px] bg-border opacity-50" />
+      <div className="w-full h-[1px] bg-white/10" />
 
       {/* What We Do Section */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-16">
-        <div className="lg:col-span-4">
+        <div className="lg:col-span-4 lg:sticky lg:top-40 h-fit">
           <div className="flex items-center gap-2 mb-12">
-            <span className="w-2 h-2 rounded-full bg-primary" />
-            <h2 className="mono-label text-muted-foreground">What we do</h2>
+            <span className="w-2 h-2 rounded-full bg-white" />
+            <h2 className="mono-label text-muted-foreground uppercase tracking-widest">04 — What we do</h2>
           </div>
           <div className="max-w-[340px]">
-            <p className="text-xl md:text-2xl font-normal leading-tight">
-              Discover our services and how we shape purpose-driven digital and branding experiences.
+            <p className="text-xl md:text-2xl font-light text-muted-foreground leading-relaxed">
+              Our multidisciplinary team delivers end-to-end solutions that drive real business growth.
             </p>
           </div>
         </div>
 
-        <div className="lg:col-span-8 flex flex-col gap-y-16 md:gap-y-24">
-          {/* Service 1 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-border pt-8 md:pt-12">
-            <h3 className="text-2xl md:text-3xl font-normal">Product strategy and design</h3>
-            <p className="text-muted-foreground text-lg md:text-xl font-light leading-relaxed">
-              Great products don’t just happen, they’re shaped by insight. We dig into research, audits, and user testing to understand what people need, then translate those findings into smart, intuitive UX solutions where every decision has purpose.
-            </p>
-          </div>
-
-          {/* Service 2 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-border pt-8 md:pt-12">
-            <h3 className="text-2xl md:text-3xl font-normal">App and website design</h3>
-            <p className="text-muted-foreground text-lg md:text-xl font-light leading-relaxed">
-              We think outside the box to make sure your product sets itself apart and sets the bar. We build beautiful, intuitive interfaces that are compelling and consistent, powered by scalable design systems.
-            </p>
-          </div>
-
-          {/* Service 3 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-border pt-8 md:pt-12">
-            <h3 className="text-2xl md:text-3xl font-normal">Brand strategy and identity design</h3>
-            <p className="text-muted-foreground text-lg md:text-xl font-light leading-relaxed">
-              Why look like someone else when you want to stand out? Together, we craft unique brand identities across touchpoints with a digital-first mindset. We bring the spark by distilling your brand DNA and getting to the root of what your users actually want.
-            </p>
+        <div className="lg:col-span-8 flex flex-col gap-y-12">
+          {/* Service Categories */}
+          {[
+            {
+              title: "Digital Design & Branding",
+              desc: "Web designing, brand identity, and immersive visual storytelling that resonates.",
+              tags: ["UI/UX", "Brand Development", "Visual Systems"]
+            },
+            {
+              title: "Technical Engineering",
+              desc: "High-performance web and app development built for the modern web.",
+              tags: ["Next.js", "React Native", "Scalable Architecture"]
+            },
+            {
+              title: "Intelligent Solutions",
+              desc: "Harnessing automation, data analysis, and data science to optimize your operations.",
+              tags: ["AI/ML", "Workflow Automation", "Data Science"]
+            },
+            {
+              title: "Growth & Visibility",
+              desc: "Strategic SEO and data-driven marketing to dominate your market.",
+              tags: ["SEO", "Performance Marketing", "Strategy"]
+            }
+          ].map((item, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="group border-t border-white/10 pt-10 pb-2"
+            >
+              <div className="flex flex-col md:flex-row justify-between gap-6">
+                <div className="max-w-[400px]">
+                  <h3 className="text-2xl md:text-3xl font-normal mb-4 group-hover:italic transition-all duration-300">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground text-lg font-light leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2 h-fit md:justify-end md:max-w-[200px]">
+                  {item.tags.map(tag => (
+                    <span key={tag} className="mono-label text-[10px] border border-white/10 px-2 py-1 rounded text-muted-foreground/60 whitespace-nowrap">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+          
+          <div className="mt-12">
+            <Magnetic strength={0.3}>
+              <button className="flex items-center gap-4 group cursor-pointer">
+                <span className="mono-label text-sm uppercase tracking-widest border-b border-white/20 pb-1 group-hover:border-white transition-all">
+                  View Full Capabilities
+                </span>
+                <div className="w-1.5 h-1.5 bg-white rounded-full transition-transform group-hover:scale-150" />
+              </button>
+            </Magnetic>
           </div>
         </div>
       </div>

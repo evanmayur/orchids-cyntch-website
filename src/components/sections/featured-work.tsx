@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import Magnetic from "@/components/ui/magnetic";
 
 const services = [
   {
@@ -105,10 +106,12 @@ const ServiceCard = ({ service, index }: { service: typeof services[0], index: n
         <p className="text-muted-foreground font-light text-lg max-w-[400px] mb-8">
           {service.description}
         </p>
-        <button className="text-white flex items-center gap-3 group/btn">
-          <span className="mono-label text-sm uppercase tracking-widest border-b border-white/20 pb-1 group-hover/btn:border-white transition-colors">Learn More</span>
-          <div className="w-1.5 h-1.5 bg-white rounded-full transition-transform group-hover/btn:scale-150"></div>
-        </button>
+        <Magnetic strength={0.2}>
+          <button className="text-white flex items-center gap-3 group/btn">
+            <span className="mono-label text-sm uppercase tracking-widest border-b border-white/20 pb-1 group-hover/btn:border-white transition-colors">Learn More</span>
+            <div className="w-1.5 h-1.5 bg-white rounded-full transition-transform group-hover/btn:scale-150"></div>
+          </button>
+        </Magnetic>
       </motion.div>
 
       {/* Index Number */}
@@ -160,13 +163,15 @@ const FeaturedWork = () => {
               <h4 className="text-2xl mb-4">Have a project in mind?</h4>
               <p className="text-muted-foreground">Let's build something exceptional together.</p>
             </div>
-            <a 
-              href="/contact" 
-              className="glass-button px-12 py-6 rounded-full inline-flex items-center gap-4 group bg-white text-black"
-            >
-              <span className="font-medium">Get in Touch</span>
-              <div className="w-2 h-2 bg-black rounded-full transition-transform group-hover:scale-125"></div>
-            </a>
+            <Magnetic strength={0.3}>
+              <a 
+                href="/contact" 
+                className="glass-button px-12 py-6 rounded-full inline-flex items-center gap-4 group bg-white text-black"
+              >
+                <span className="font-medium">Get in Touch</span>
+                <div className="w-2 h-2 bg-black rounded-full transition-transform group-hover:scale-125"></div>
+              </a>
+            </Magnetic>
           </div>
         </div>
       </div>
