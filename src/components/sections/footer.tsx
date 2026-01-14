@@ -1,161 +1,152 @@
-import React from 'react';
-import Image from 'next/image';
+"use client";
+
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 /**
- * Footer Component
- * 
- * A pixel-perfect clone of the Framer Marketplace detailed footer.
- * Includes multi-column links, the secondary Framer logo, and a cookie consent banner.
+ * Footer component for Estrela Studio
+ * Includes: "Let's collaborate" CTA, Site index, Social links, Newsletter form, and GMT+2 Clock.
  */
+export default function Footer() {
+  const [time, setTime] = useState("");
 
-const Footer = () => {
-  const footerSections = [
-    {
-      title: 'Resources',
-      links: [
-        { label: 'Desktop app', href: '#' },
-        { label: 'Marketplace', href: '#' },
-        { label: 'Community', href: '#' },
-        { label: 'Developers', href: '#' },
-        { label: 'Wallpapers', href: '#' },
-        { label: 'Startups', href: '#' },
-      ],
-    },
-    {
-      title: 'Company',
-      links: [
-        { label: 'Security', href: '#' },
-        { label: 'Careers', href: '#' },
-        { label: 'Report', href: '#' },
-        { label: 'Status', href: '#' },
-        { label: 'Legal', href: '#' },
-        { label: 'Blog', href: '#' },
-      ],
-    },
-    {
-      title: 'Creators',
-      links: [
-        { label: 'Program', href: '#' },
-        { label: 'Payouts', href: '#' },
-        { label: 'Experts', href: '#' },
-        { label: 'Awards', href: '#' },
-        { label: 'Events', href: '#' },
-        { label: 'Brand', href: '#' },
-      ],
-    },
-    {
-      title: 'Compare',
-      links: [
-        { label: 'Squarespace', href: '#' },
-        { label: 'Wordpress', href: '#' },
-        { label: 'Unbounce', href: '#' },
-        { label: 'Webflow', href: '#' },
-        { label: 'Figma', href: '#' },
-        { label: 'Wix', href: '#' },
-      ],
-    },
-    {
-      title: 'Solutions',
-      links: [
-        { label: 'Figma to HTML', href: '#' },
-        { label: 'Website builder', href: '#' },
-        { label: 'Portfolio maker', href: '#' },
-        { label: 'Landing pages', href: '#' },
-        { label: 'UI/UX design', href: '#' },
-        { label: 'No-code', href: '#' },
-      ],
-    },
-    {
-      title: 'Socials',
-      links: [
-        { label: 'Instagram', href: '#' },
-        { label: 'X Twitter', href: '#' },
-        { label: 'YouTube', href: '#' },
-        { label: 'LinkedIn', href: '#' },
-        { label: 'Threads', href: '#' },
-        { label: 'TikTok', href: '#' },
-      ],
-    },
-  ];
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      // Adjusting to GMT+2 specifically as requested
+      const gmt2Time = new Date(now.getTime() + (now.getTimezoneOffset() + 120) * 60000);
+      const hours = String(gmt2Time.getHours()).padStart(2, "0");
+      const minutes = String(gmt2Time.getMinutes()).padStart(2, "0");
+      const seconds = String(gmt2Time.getSeconds()).padStart(2, "0");
+      setTime(`${hours}:${minutes}:${seconds}`);
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <footer className="relative w-full bg-[#000000] pt-[80px] pb-[100px] font-sans">
-      <div className="container mx-auto max-w-[1200px] px-5">
-        <div className="flex flex-wrap lg:flex-nowrap justify-between gap-y-10">
-          {/* Link Columns */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-10 flex-grow">
-            {footerSections.map((section) => (
-              <div key={section.title} className="flex flex-col gap-4">
-                <h6 className="text-[14px] font-semibold text-white tracking-tight">
-                  {section.title}
-                </h6>
-                <ul className="flex flex-col gap-3">
-                  {section.links.map((link) => (
-                    <li key={link.label}>
-                      <a
-                        href={link.href}
-                        className="text-[14px] font-medium text-[#999999] hover:text-white transition-colors duration-200"
-                      >
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+    <footer className="bg-black text-white px-[5vw] pt-[120px] pb-[40px] border-t border-white/10 font-sans">
+      <div className="max-w-[1800px] mx-auto">
+        {/* Main CTA Section */}
+        <div className="mb-[120px] md:mb-[200px]">
+          <p className="text-[14px] uppercase tracking-[0.1em] font-mono text-muted-foreground mb-4">
+            Tell us about your project.
+          </p>
+          <Link
+            href="/contact"
+            className="group inline-flex items-center text-[clamp(2.5rem,8vw,8rem)] leading-[0.9] tracking-[-0.04em] hover:opacity-70 transition-opacity"
+          >
+            Let&apos;s collaborate.
+            <div className="ml-8 w-[clamp(40px,6vw,100px)] h-[clamp(40px,6vw,100px)] rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+              <ArrowRight className="w-1/2 h-1/2" strokeWidth={1} />
+            </div>
+          </Link>
+        </div>
+
+        {/* Lower Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-8">
+          {/* Site Index */}
+          <div className="md:col-span-3">
+            <h6 className="text-[12px] uppercase tracking-[0.1em] font-mono text-muted-foreground mb-8">
+              Site index
+            </h6>
+            <ul className="space-y-4">
+              {["Work", "About", "Services", "Contact"].map((item) => (
+                <li key={item}>
+                  <Link
+                    href={`/${item.toLowerCase()}`}
+                    className="text-[18px] hover:text-muted-foreground transition-colors"
+                  >
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Secondary Logo */}
-          <div className="flex justify-end pt-1 lg:pt-0 min-w-[32px]">
-            <a href="https://www.framer.com" aria-label="Framer Home">
-              <svg 
-                width="16" 
-                height="24" 
-                viewBox="0 0 16 24" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
-                className="text-white fill-current"
-              >
-                <path d="M0 0H16V8L8 16H16V24L0 8V0Z" />
-              </svg>
-            </a>
+          {/* Social Links */}
+          <div className="md:col-span-3">
+            <h6 className="text-[12px] uppercase tracking-[0.1em] font-mono text-muted-foreground mb-8">
+              Social
+            </h6>
+            <ul className="space-y-4">
+              {[
+                { name: "Instagram", url: "https://www.instagram.com/estrela_digitalstudio/?hl=en" },
+                { name: "Facebook", url: "https://www.facebook.com/profile.php?id=100091661185714" },
+                { name: "LinkedIn", url: "https://www.linkedin.com/company/estrela-digital-studio" },
+                { name: "Awwwards", url: "https://www.awwwards.com/estrelastudio/" },
+                { name: "Behance", url: "https://www.behance.net/estrelastudio" },
+              ].map((social) => (
+                <li key={social.name}>
+                  <a
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[18px] hover:text-muted-foreground transition-colors"
+                  >
+                    {social.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Newsletter Signup */}
+          <div className="md:col-span-6 lg:pl-[10vw]">
+            <p className="text-[18px] leading-[1.4] mb-8 max-w-[400px]">
+              Join our newsletter for fresh updates and exclusive studio insights.
+            </p>
+            <form className="relative flex flex-col gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <input
+                  type="text"
+                  placeholder="First name"
+                  className="bg-transparent border-b border-white/20 pb-2 flex-1 focus:outline-none focus:border-white transition-colors placeholder:text-muted-foreground text-[16px]"
+                />
+                <input
+                  type="text"
+                  placeholder="Last name"
+                  className="bg-transparent border-b border-white/20 pb-2 flex-1 focus:outline-none focus:border-white transition-colors placeholder:text-muted-foreground text-[16px]"
+                />
+              </div>
+              <div className="flex items-end gap-4 mt-2">
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  className="bg-transparent border-b border-white/20 pb-2 flex-1 focus:outline-none focus:border-white transition-colors placeholder:text-muted-foreground text-[16px]"
+                />
+                <button
+                  type="submit"
+                  className="group relative flex items-center justify-center w-12 h-12 rounded-full border border-white/20 hover:bg-white hover:text-black transition-all mb-1"
+                >
+                  <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" strokeWidth={1.5} />
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-[80px] pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+          <div className="flex gap-8 text-[14px] text-muted-foreground font-mono uppercase tracking-widest">
+            <span>© 2024 Estrela Studio</span>
+            <Link href="/privacy" className="hover:text-white transition-colors">
+              Privacy
+            </Link>
+          </div>
+
+          <div className="text-[14px] font-mono uppercase tracking-[0.1em] text-white">
+            <span className="text-muted-foreground mr-2">{time}</span> (GMT+2)
+          </div>
+
+          <div className="text-[14px] text-muted-foreground font-mono uppercase tracking-widest">
+            Made with love in Cape Town & Vienna
           </div>
         </div>
       </div>
-
-      {/* Cookie Consent Banner */}
-      <CookieBanner />
     </footer>
   );
-};
-
-/**
- * Cookie Banner Component
- * Floating overlay as seen in the screenshots.
- */
-function CookieBanner() {
-  const [isVisible, setIsVisible] = React.useState(true);
-
-  if (!isVisible) return null;
-
-  return (
-    <div className="fixed bottom-5 left-5 z-[50] animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <div 
-        className="flex items-center gap-4 bg-white rounded-[16px] p-5 pr-6 shadow-2xl max-w-[380px]"
-        style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.3)' }}
-      >
-        <p className="text-[14px] leading-[1.4] font-medium text-black">
-          We use cookies to personalize content, run ads, and analyze traffic.
-        </p>
-        <button
-          onClick={() => setIsVisible(false)}
-          className="flex-shrink-0 bg-[#f5f5f5] hover:bg-[#ebebeb] text-black text-[14px] font-semibold py-2 px-5 rounded-full transition-colors"
-        >
-          Okay
-        </button>
-      </div>
-    </div>
-  );
 }
-
-export default Footer;
