@@ -1,7 +1,7 @@
 import Navigation from "@/components/sections/navigation";
 import Hero from "@/components/sections/hero";
 import IntroExperience from "@/components/sections/intro-experience";
-import FeaturedWork from "@/components/sections/featured-work";
+import Services from "@/components/sections/services";
 import AboutUs from "@/components/sections/about-us";
 import Testimonials from "@/components/sections/testimonials";
 import FAQSection from "@/components/sections/faqs";
@@ -17,9 +17,9 @@ export default function Home() {
         <ScrollReveal>
           <IntroExperience />
         </ScrollReveal>
-        <ScrollReveal>
-          <FeaturedWork />
-        </ScrollReveal>
+        
+        <Services />
+        
         <ScrollReveal>
           <AboutUs />
         </ScrollReveal>

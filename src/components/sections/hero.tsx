@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Magnetic from "@/components/ui/magnetic";
 
 /**
- * Hero component for Cyntch.
+ * Hero component for Codex Infotech.
  * Features a full-screen background video, large split-text headline,
  * an animated central icon (represented as a stylized SVG to match the studio aesthetic),
  * and a "Scroll to discover" indicator.
@@ -31,8 +31,8 @@ const Hero = () => {
     >
       {/* Background Video */}
       <motion.figure 
-        style={{ y: videoY }}
-        className="absolute inset-0 w-full h-full z-0 pointer-events-none"
+        style={{ y: videoY, willChange: "transform" }}
+        className="absolute inset-0 w-full h-full z-0 pointer-events-none transform-gpu"
       >
         <div className="relative w-full h-full overflow-hidden">
           <video
@@ -106,8 +106,6 @@ const Hero = () => {
         </Magnetic>
       </motion.div>
 
-      {/* Decorative Canvas-drawn Border logic (CSS handled) */}
-      <div className="absolute inset-0 border border-white/5 pointer-events-none z-30 m-4 md:m-8" />
 
       <style jsx global>{`
         @keyframes scroll-hint {

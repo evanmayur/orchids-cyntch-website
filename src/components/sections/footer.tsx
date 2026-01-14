@@ -2,11 +2,11 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 /**
- * Footer component for Cyntch
- * Includes: "Let's collaborate" CTA, Site index, Social links, Newsletter form, and GMT+2 Clock.
+ * Footer component for Codex Infotech
+ * Matching the reference image style.
  */
 export default function Footer() {
   const [time, setTime] = useState("");
@@ -28,37 +28,21 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-black text-white px-[5vw] pt-[120px] pb-[40px] border-t border-white/10 font-sans">
+    <footer className="bg-black text-white px-[5vw] pt-[120px] pb-[40px] font-sans overflow-hidden">
       <div className="max-w-[1800px] mx-auto">
-        {/* Main CTA Section */}
-        <div className="mb-[120px] md:mb-[200px]">
-          <p className="text-[14px] uppercase tracking-[0.1em] font-mono text-muted-foreground mb-4">
-            Tell us about your project.
-          </p>
-          <Link
-            href="/contact"
-            className="group inline-flex items-center text-[clamp(2.5rem,8vw,8rem)] leading-[0.9] tracking-[-0.04em] hover:opacity-70 transition-opacity"
-          >
-            Let&apos;s collaborate.
-            <div className="ml-8 w-[clamp(40px,6vw,100px)] h-[clamp(40px,6vw,100px)] rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
-              <ArrowRight className="w-1/2 h-1/2" strokeWidth={1} />
-            </div>
-          </Link>
-        </div>
-
-        {/* Lower Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-8">
+        {/* Top Section */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-8 mb-[80px]">
           {/* Site Index */}
           <div className="md:col-span-3">
-            <h6 className="text-[12px] uppercase tracking-[0.1em] font-mono text-muted-foreground mb-8">
+            <h6 className="text-[14px] font-medium text-muted-foreground mb-10">
               Site index
             </h6>
             <ul className="space-y-4">
-              {["Work", "About", "Services", "Contact"].map((item) => (
+              {["Home", "Work", "About", "Services", "Privacy Policy"].map((item) => (
                 <li key={item}>
                   <Link
-                    href={`/${item.toLowerCase()}`}
-                    className="text-[18px] hover:text-muted-foreground transition-colors"
+                    href={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
+                    className="text-[18px] text-white/80 hover:text-white transition-colors"
                   >
                     {item}
                   </Link>
@@ -69,7 +53,7 @@ export default function Footer() {
 
           {/* Social Links */}
           <div className="md:col-span-3">
-            <h6 className="text-[12px] uppercase tracking-[0.1em] font-mono text-muted-foreground mb-8">
+            <h6 className="text-[14px] font-medium text-muted-foreground mb-10">
               Social
             </h6>
             <ul className="space-y-4">
@@ -85,7 +69,7 @@ export default function Footer() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[18px] hover:text-muted-foreground transition-colors"
+                    className="text-[18px] text-white/80 hover:text-white transition-colors"
                   >
                     {social.name}
                   </a>
@@ -94,56 +78,64 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter Signup */}
-          <div className="md:col-span-6 lg:pl-[10vw]">
-            <p className="text-[18px] leading-[1.4] mb-8 max-w-[400px]">
-              Join our newsletter for fresh updates and exclusive studio insights.
-            </p>
-            <form className="relative flex flex-col gap-4">
-              <div className="flex flex-col sm:flex-row gap-4">
-                <input
-                  type="text"
-                  placeholder="First name"
-                  className="bg-transparent border-b border-white/20 pb-2 flex-1 focus:outline-none focus:border-white transition-colors placeholder:text-muted-foreground text-[16px]"
-                />
-                <input
-                  type="text"
-                  placeholder="Last name"
-                  className="bg-transparent border-b border-white/20 pb-2 flex-1 focus:outline-none focus:border-white transition-colors placeholder:text-muted-foreground text-[16px]"
-                />
+          {/* Contact Section */}
+          <div className="md:col-span-6 flex flex-col items-end">
+            <Link
+              href="/contact"
+              className="group relative bg-white/5 backdrop-blur-xl border border-white/10 px-12 py-10 rounded-2xl w-full max-w-[500px] flex items-center justify-between transition-all hover:bg-white/10 hover:border-white/20 overflow-hidden mb-12"
+            >
+              {/* Liquid shine effect */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              
+              <span className="text-2xl font-light tracking-tight">Contact Us</span>
+              <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
+            </Link>
+
+            <div className="text-right space-y-6 max-w-[500px] w-full">
+              <div>
+                <p className="text-white/60 text-lg mb-1">Tell us about your project.</p>
+                <p className="text-white text-lg">Let&apos;s collaborate.</p>
               </div>
-              <div className="flex items-end gap-4 mt-2">
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className="bg-transparent border-b border-white/20 pb-2 flex-1 focus:outline-none focus:border-white transition-colors placeholder:text-muted-foreground text-[16px]"
-                />
-                <button
-                  type="submit"
-                  className="group relative flex items-center justify-center w-12 h-12 rounded-full border border-white/20 hover:bg-white hover:text-black transition-all mb-1"
-                >
-                  <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" strokeWidth={1.5} />
+
+              <div className="flex flex-col items-end gap-2 text-white/80">
+                <div className="text-[14px] font-mono mb-4">
+                  {time} (GMT+2)
+                </div>
+                <Link href="tel:+27780548476" className="flex items-center gap-3 hover:text-white transition-colors group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white" />
+                  +27 (0) 78 054 8476
+                </Link>
+                <Link href="mailto:hello@codexinfotech.com" className="flex items-center gap-3 hover:text-white transition-colors group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white" />
+                  Write Us
+                </Link>
+                <button className="flex items-center gap-3 hover:text-white transition-colors group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white" />
+                  Newsletter Signup
                 </button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-[80px] pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-          <div className="flex gap-8 text-[14px] text-muted-foreground font-mono uppercase tracking-widest">
-            <span>© 2026 Cyntch</span>
-            <Link href="/privacy" className="hover:text-white transition-colors">
-              Privacy
-            </Link>
+        {/* Brand Section */}
+        <div className="mt-[120px] flex flex-col items-center">
+          <div className="mb-10 text-white/40">
+            <Sparkles size={48} strokeWidth={1} />
           </div>
+          <h2 className="w-full flex justify-between text-[clamp(1rem,6vw,18rem)] leading-[0.8] font-bold text-white uppercase overflow-hidden">
+            {"Codex Infotech".split("").map((char, i) => (
+              <span key={i} className="inline-block">{char === " " ? "\u00A0" : char}</span>
+            ))}
+          </h2>
+        </div>
 
-          <div className="text-[14px] font-mono uppercase tracking-[0.1em] text-white">
-            <span className="text-muted-foreground mr-2">{time}</span> (GMT+2)
-          </div>
-
-          <div className="text-[14px] text-muted-foreground font-mono uppercase tracking-widest">
-            Made with love in Cape Town & Vienna
+        {/* Final Footer Bar */}
+        <div className="mt-20 flex flex-col md:flex-row justify-between items-center text-[12px] uppercase tracking-widest text-white/30 font-mono gap-4">
+          <p>© 2026 Codex Infotech</p>
+          <div className="flex gap-8">
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
           </div>
         </div>
       </div>
