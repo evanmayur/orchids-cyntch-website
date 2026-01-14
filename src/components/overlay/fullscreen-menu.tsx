@@ -14,13 +14,13 @@ const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     const updateTime = () => {
-      const gmt2 = new Date().toLocaleTimeString("en-GB", {
-        timeZone: "Africa/Johannesburg", // GMT+2 approximation
+      const istTime = new Date().toLocaleTimeString("en-GB", {
+        timeZone: "Asia/Kolkata",
         hour: "2-digit",
         minute: "2-digit",
         second: "2-digit",
       });
-      setCurrentTime(gmt2);
+      setCurrentTime(istTime);
     };
 
     updateTime();
@@ -73,21 +73,21 @@ const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose }) => {
           </button>
         </div>
 
-          {/* Contact Column */}
-          <div className="flex-1 lg:flex items-center justify-end lg:justify-start px-[5vw]">
-            <a
-              href="/contact"
-              className="relative group flex items-center justify-center bg-white/5 backdrop-blur-xl border border-white/20 px-8 py-3 rounded-full transition-all duration-700 hover:bg-white/10 hover:border-white/30 shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] overflow-hidden"
-            >
-              {/* Liquid shine effect */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-              
-              <span className="mono-label text-[11px] font-medium tracking-widest uppercase text-white relative z-10">
-                Contact Us
-              </span>
-              <div className="w-1.5 h-1.5 rounded-full bg-white ml-3 transition-transform group-hover:scale-125 relative z-10" />
-            </a>
-          </div>
+        {/* Contact Column */}
+        <div className="flex-1 lg:flex items-center justify-end lg:justify-start px-[5vw]">
+          <a
+            href="/contact"
+            className="relative group flex items-center justify-center bg-white/5 backdrop-blur-xl border border-white/20 px-8 py-3 rounded-full transition-all duration-700 hover:bg-white/10 hover:border-white/30 shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] overflow-hidden"
+          >
+            {/* Liquid shine effect */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+
+            <span className="mono-label text-[11px] font-medium tracking-widest uppercase text-white relative z-10">
+              Contact Us
+            </span>
+            <div className="w-1.5 h-1.5 rounded-full bg-white ml-3 transition-transform group-hover:scale-125 relative z-10" />
+          </a>
+        </div>
       </div>
 
       {/* Main Content Area */}
@@ -130,94 +130,94 @@ const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose }) => {
                     +27 (0) 78 054 8476
                   </a>
                 </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
-                      <a
-                        href="mailto:hello@codexinfotech.com"
-                        className="text-[18px] hover:text-white/60 transition-colors"
-                      >
-                        Write Us
-                      </a>
-                    </div>
-                </div>
-
-                {/* Newsletter Toggle */}
-                <div className="relative mt-4">
-                  <button
-                    onClick={() => setNewsletterOpen(!newsletterOpen)}
-                    className="flex items-center gap-3 group"
+                <div className="flex items-center gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
+                  <a
+                    href="mailto:hello@codexinfotech.com"
+                    className="text-[18px] hover:text-white/60 transition-colors"
                   >
-                    <div className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white transition-colors" />
-                    <span className="text-[18px] group-hover:underline decoration-white/20 underline-offset-4">
-                      Newsletter Signup
-                    </span>
-                    {newsletterOpen && <X className="w-3 h-3 ml-2 opacity-60" />}
-                  </button>
-
-                  {newsletterOpen && (
-                    <div className="mt-6 p-6 rounded-lg bg-white/[0.03] border border-white/10 animate-in fade-in slide-in-from-top-4 duration-500">
-                      <p className="text-[14px] leading-relaxed mb-6 text-muted-foreground">
-                        Join our newsletter for fresh updates and exclusive studio
-                        insights.
-                      </p>
-                      <form className="flex flex-col gap-3" onSubmit={(e) => e.preventDefault()}>
-                        <div className="grid grid-cols-2 gap-2">
-                          <input
-                            type="text"
-                            placeholder="First name"
-                            className="bg-white/[0.05] border border-white/10 rounded px-4 py-2 text-sm focus:outline-none focus:border-white/30"
-                          />
-                          <input
-                            type="text"
-                            placeholder="Last name"
-                            className="bg-white/[0.05] border border-white/10 rounded px-4 py-2 text-sm focus:outline-none focus:border-white/30"
-                          />
-                        </div>
-                        <input
-                          type="email"
-                          placeholder="Email Address"
-                          className="bg-white/[0.05] border border-white/10 rounded px-4 py-2 text-sm focus:outline-none focus:border-white/30"
-                        />
-                        <button className="flex items-center justify-between px-6 py-2.5 mt-2 bg-white text-black rounded-full font-medium text-sm hover:bg-white/90 transition-colors">
-                          Submit Details
-                          <div className="w-1.5 h-1.5 rounded-full bg-black" />
-                        </button>
-                      </form>
-                    </div>
-                  )}
+                    Write Us
+                  </a>
                 </div>
               </div>
 
-              {/* Social Links */}
-              <div className="flex flex-col gap-6">
-                <span className="mono-label text-white/40 mb-2">Social</span>
-                <div className="flex flex-col gap-2">
-                  {["Instagram", "Facebook", "LinkedIn", "Awwwards", "Behance"].map(
-                    (social) => (
-                      <a
-                        key={social}
-                        href="#"
-                        className="text-[16px] hover:text-white/60 transition-colors py-0.5"
-                      >
-                        {social}
-                      </a>
-                    )
-                  )}
-                </div>
+              {/* Newsletter Toggle */}
+              <div className="relative mt-4">
+                <button
+                  onClick={() => setNewsletterOpen(!newsletterOpen)}
+                  className="flex items-center gap-3 group"
+                >
+                  <div className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white transition-colors" />
+                  <span className="text-[18px] group-hover:underline decoration-white/20 underline-offset-4">
+                    Newsletter Signup
+                  </span>
+                  {newsletterOpen && <X className="w-3 h-3 ml-2 opacity-60" />}
+                </button>
+
+                {newsletterOpen && (
+                  <div className="mt-6 p-6 rounded-lg bg-white/[0.03] border border-white/10 animate-in fade-in slide-in-from-top-4 duration-500">
+                    <p className="text-[14px] leading-relaxed mb-6 text-muted-foreground">
+                      Join our newsletter for fresh updates and exclusive studio
+                      insights.
+                    </p>
+                    <form className="flex flex-col gap-3" onSubmit={(e) => e.preventDefault()}>
+                      <div className="grid grid-cols-2 gap-2">
+                        <input
+                          type="text"
+                          placeholder="First name"
+                          className="bg-white/[0.05] border border-white/10 rounded px-4 py-2 text-sm focus:outline-none focus:border-white/30"
+                        />
+                        <input
+                          type="text"
+                          placeholder="Last name"
+                          className="bg-white/[0.05] border border-white/10 rounded px-4 py-2 text-sm focus:outline-none focus:border-white/30"
+                        />
+                      </div>
+                      <input
+                        type="email"
+                        placeholder="Email Address"
+                        className="bg-white/[0.05] border border-white/10 rounded px-4 py-2 text-sm focus:outline-none focus:border-white/30"
+                      />
+                      <button className="flex items-center justify-between px-6 py-2.5 mt-2 bg-white text-black rounded-full font-medium text-sm hover:bg-white/90 transition-colors">
+                        Submit Details
+                        <div className="w-1.5 h-1.5 rounded-full bg-black" />
+                      </button>
+                    </form>
+                  </div>
+                )}
               </div>
             </div>
 
-            {/* Footer Clock & Detail */}
-            <div className="flex items-end justify-between mt-12 pt-8 border-t border-white/5">
-              <div className="flex flex-col gap-1">
-                <span className="text-[14px] text-muted-foreground">Local Time</span>
-                <div className="text-[16px] font-mono tracking-wider">
-                  {currentTime} <span className="text-white/30 ml-1">(GMT+2)</span>
-                </div>
+            {/* Social Links */}
+            <div className="flex flex-col gap-6">
+              <span className="mono-label text-white/40 mb-2">Social</span>
+              <div className="flex flex-col gap-2">
+                {["Instagram", "Facebook", "LinkedIn"].map(
+                  (social) => (
+                    <a
+                      key={social}
+                      href="#"
+                      className="text-[16px] hover:text-white/60 transition-colors py-0.5"
+                    >
+                      {social}
+                    </a>
+                  )
+                )}
               </div>
-              <div className="hidden lg:block text-[14px] text-white/20 select-none uppercase tracking-widest font-mono">
-                © CODEX INFOTECH 2026
+            </div>
+          </div>
+
+          {/* Footer Clock & Detail */}
+          <div className="flex items-end justify-between mt-12 pt-8 border-t border-white/5">
+            <div className="flex flex-col gap-1">
+              <span className="text-[14px] text-muted-foreground">Local Time</span>
+              <div className="text-[16px] font-mono tracking-wider">
+                {currentTime} <span className="text-white/30 ml-1">(IST)</span>
               </div>
+            </div>
+            <div className="hidden lg:block text-[14px] text-white/20 select-none uppercase tracking-widest font-mono">
+              © CODEX INFOTECH 2026
+            </div>
           </div>
         </div>
       </div>

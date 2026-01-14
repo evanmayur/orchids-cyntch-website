@@ -13,13 +13,13 @@ export default function Footer() {
 
   useEffect(() => {
     const updateTime = () => {
-      const now = new Date();
-      // Adjusting to GMT+2 specifically as requested
-      const gmt2Time = new Date(now.getTime() + (now.getTimezoneOffset() + 120) * 60000);
-      const hours = String(gmt2Time.getHours()).padStart(2, "0");
-      const minutes = String(gmt2Time.getMinutes()).padStart(2, "0");
-      const seconds = String(gmt2Time.getSeconds()).padStart(2, "0");
-      setTime(`${hours}:${minutes}:${seconds}`);
+      const istTime = new Date().toLocaleTimeString("en-GB", {
+        timeZone: "Asia/Kolkata",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      });
+      setTime(istTime);
     };
 
     updateTime();
@@ -61,8 +61,6 @@ export default function Footer() {
                 { name: "Instagram", url: "#" },
                 { name: "Facebook", url: "#" },
                 { name: "LinkedIn", url: "#" },
-                { name: "Awwwards", url: "#" },
-                { name: "Behance", url: "#" },
               ].map((social) => (
                 <li key={social.name}>
                   <a
@@ -86,7 +84,7 @@ export default function Footer() {
             >
               {/* Liquid shine effect */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-              
+
               <span className="text-2xl font-light tracking-tight">Contact Us</span>
               <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
             </Link>
@@ -99,7 +97,7 @@ export default function Footer() {
 
               <div className="flex flex-col items-end gap-2 text-white/80">
                 <div className="text-[14px] font-mono mb-4">
-                  {time} (GMT+2)
+                  {time} (IST)
                 </div>
                 <Link href="tel:+27780548476" className="flex items-center gap-3 hover:text-white transition-colors group">
                   <span className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white" />
