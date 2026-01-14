@@ -130,7 +130,7 @@ const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose }) => {
                 <div className="flex items-center gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
                   <a
-                    href="mailto:accounts@estrela.studio"
+                    href="mailto:accounts@codex.studio"
                     className="text-[18px] hover:text-white/60 transition-colors"
                   >
                     Write Us
@@ -213,7 +213,7 @@ const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose }) => {
               </div>
             </div>
             <div className="hidden lg:block text-[14px] text-white/20 select-none">
-              © ESTRELA STUDIO 2024
+              © CODEX 2024
             </div>
           </div>
         </div>

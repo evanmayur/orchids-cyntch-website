@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { VisualEditsMessenger } from "orchids-visual-edits";
 import Script from "next/script";
+import { SmoothScroll } from "@/components/ui/smooth-scroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,7 +36,9 @@ export default function RootLayout({
           strategy="afterInteractive"
           data-orchids-project-id="ce1589ff-8399-40fb-afc8-6e6951d6460b"
         />
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
         <VisualEditsMessenger />
       </body>
     </html>

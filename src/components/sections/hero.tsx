@@ -1,21 +1,36 @@
 "use client";
 
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from "framer-motion";
 
 /**
- * Hero component for Estrela Studio.
+ * Hero component for Codex.
  * Features a full-screen background video, large split-text headline,
  * an animated central icon (represented as a stylized SVG to match the studio aesthetic),
  * and a "Scroll to discover" indicator.
  */
 const Hero = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  const videoY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
   return (
     <section 
+      ref={containerRef}
       className="relative w-full h-[100vh] min-h-screen overflow-hidden flex flex-col items-center justify-center bg-black"
       data-theme="dark"
     >
       {/* Background Video */}
-      <figure className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+      <motion.figure 
+        style={{ y: videoY }}
+        className="absolute inset-0 w-full h-full z-0 pointer-events-none"
+      >
         <div className="relative w-full h-full overflow-hidden">
           <video
             autoPlay
@@ -26,10 +41,13 @@ const Hero = () => {
             src="https://estrelastudio.cdn.prismic.io/estrelastudio/aK8JRWGNHVfTOXgT_estrela-hero.mp4"
           />
         </div>
-      </figure>
+      </motion.figure>
 
       {/* Main Content Overlay */}
-      <div className="relative z-10 w-full px-[5vw] flex flex-col items-center justify-center text-center pointer-events-none">
+      <motion.div 
+        style={{ y: textY, opacity }}
+        className="relative z-10 w-full px-[5vw] flex flex-col items-center justify-center text-center pointer-events-none"
+      >
         
         {/* Large Split-Text Headline */}
         <h1 className="hero-title flex flex-col md:flex-row items-center justify-center gap-[0.5em] md:gap-[2vw] text-white select-none">
@@ -63,10 +81,13 @@ const Hero = () => {
             </g>
           </svg>
         </div>
-      </div>
+      </motion.div>
 
       {/* "Scroll to discover" Indicator */}
-      <div className="absolute bottom-[4vh] left-1/2 -translate-x-1/2 z-20 hidden md:block select-none">
+      <motion.div 
+        style={{ opacity }}
+        className="absolute bottom-[4vh] left-1/2 -translate-x-1/2 z-20 hidden md:block select-none"
+      >
         <span className="mono-label text-white/50 text-[10px] tracking-[0.2em] uppercase flex flex-col items-center gap-4 group cursor-pointer">
           <span className="animate-in fade-in slide-in-from-bottom-2 duration-1000 delay-500 fill-mode-both">
             Scroll to discover our world
@@ -75,7 +96,7 @@ const Hero = () => {
             <div className="absolute top-0 left-0 w-full h-1/2 bg-white animate-[scroll-hint_2s_infinite_ease-in-out]"></div>
           </div>
         </span>
-      </div>
+      </motion.div>
 
       {/* Decorative Canvas-drawn Border logic (CSS handled) */}
       <div className="absolute inset-0 border border-white/5 pointer-events-none z-30 m-4 md:m-8" />

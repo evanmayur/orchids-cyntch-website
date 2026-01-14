@@ -1,103 +1,171 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
-const projects = [
+const services = [
   {
     id: 1,
-    title: 'PayJustNow',
-    description: 'An App Redesign Built for Discovery',
-    categories: ['UI Design', 'UX Design'],
-    image: 'https://images.prismic.io/estrelastudio/aN7NX55xUNkB1bRi_Experiences_01.jpg?w=800&auto=compress,format',
+    title: 'Web Designing',
+    description: 'Elevating digital identities through high-end visual design and immersive UI/UX experiences.',
+    categories: ['UI/UX', 'Product Design', 'Interaction'],
+    image: 'https://images.unsplash.com/photo-1586717791821-3f44a563ec4c?q=80&w=1200&auto=format&fit=crop',
   },
   {
     id: 2,
-    title: 'Yucca Packaging',
-    description: 'A Packaging Website with Purpose',
-    categories: ['UX Design', 'Brand Design', 'UI Design'],
-    image: 'https://images.prismic.io/estrelastudio/aN7NX55xUNkB1bRj_Experiences_02.jpg?w=800&auto=compress,format',
+    title: 'Web Development',
+    description: 'Building robust, high-performance web applications tailored for scalability and speed.',
+    categories: ['Full-stack', 'E-commerce', 'Next.js'],
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop',
   },
   {
     id: 3,
-    title: 'Helpguide',
-    description: 'A Digital Revamp for Mental Wellbeing',
-    categories: ['Design Strategy', 'UI Design', 'Brand Design', 'UX Design'],
-    image: 'https://images.prismic.io/estrelastudio/aN7NYZ5xUNkB1bRk_Experiences_03.jpg?w=800&auto=compress,format',
+    title: 'Automation',
+    description: 'Streamlining business operations with intelligent automation and custom workflow solutions.',
+    categories: ['AI', 'Workflow', 'Efficiency'],
+    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200&auto=format&fit=crop',
+  },
+  {
+    id: 4,
+    title: 'App Development',
+    description: 'Creating seamless native and cross-platform mobile experiences for iOS and Android.',
+    categories: ['iOS', 'Android', 'React Native'],
+    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200&auto=format&fit=crop',
+  },
+  {
+    id: 5,
+    title: 'Data Science',
+    description: 'Turning complex data into actionable insights through advanced analysis and predictive modeling.',
+    categories: ['Analysis', 'ML', 'Big Data'],
+    image: 'https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=1200&auto=format&fit=crop',
+  },
+  {
+    id: 6,
+    title: 'SEO Solutions',
+    description: 'Dominating search results and driving organic growth through data-driven SEO strategies.',
+    categories: ['Organic', 'Strategy', 'Growth'],
+    image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=1200&auto=format&fit=crop',
+  },
+  {
+    id: 7,
+    title: 'Brand Design',
+    description: 'Crafting cohesive and memorable brand stories that resonate with your target audience.',
+    categories: ['Identity', 'Strategy', 'Visuals'],
+    image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200&auto=format&fit=crop',
   },
 ];
 
+const ServiceCard = ({ service, index }: { service: typeof services[0], index: number }) => {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start end", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.3, 1, 1, 0.3]);
+
+  return (
+    <motion.div 
+      ref={container}
+      style={{ opacity }}
+      className="group relative flex flex-col md:flex-row gap-8 items-center md:items-end py-12 md:py-24 border-b border-white/5 last:border-0"
+    >
+      {/* Service Image */}
+      <div className="relative w-full md:w-[55%] aspect-[16/10] overflow-hidden rounded-lg cursor-pointer">
+        <Image
+          src={service.image}
+          alt={service.title}
+          fill
+          className="object-cover grayscale transition-all duration-700 ease-out group-hover:grayscale-0 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+      </div>
+
+      {/* Service Info */}
+      <motion.div 
+        style={{ y }}
+        className="w-full md:w-[45%] text-left md:pl-12"
+      >
+        <div className="flex flex-wrap gap-2 mb-6">
+          {service.categories.map((cat) => (
+            <span 
+              key={cat} 
+              className="mono-label text-[10px] text-muted-foreground border border-white/10 px-3 py-1 rounded-full"
+            >
+              {cat}
+            </span>
+          ))}
+        </div>
+        <h3 className="text-4xl md:text-5xl lg:text-7xl font-normal leading-tight tracking-tight mb-6">
+          {service.title}
+        </h3>
+        <p className="text-muted-foreground font-light text-lg max-w-[400px] mb-8">
+          {service.description}
+        </p>
+        <button className="text-white flex items-center gap-3 group/btn">
+          <span className="mono-label text-sm uppercase tracking-widest border-b border-white/20 pb-1 group-hover/btn:border-white transition-colors">Learn More</span>
+          <div className="w-1.5 h-1.5 bg-white rounded-full transition-transform group-hover/btn:scale-150"></div>
+        </button>
+      </motion.div>
+
+      {/* Index Number */}
+      <div className="absolute -left-12 top-1/2 -translate-y-1/2 hidden lg:block overflow-hidden">
+        <motion.span 
+          style={{ y: useTransform(scrollYProgress, [0, 1], [50, -50]) }}
+          className="text-[12rem] font-bold text-white/5 select-none leading-none"
+        >
+          0{index + 1}
+        </motion.span>
+      </div>
+    </motion.div>
+  );
+};
+
 const FeaturedWork = () => {
   return (
-    <section className="bg-background text-foreground py-[clamp(80px,12vw,200px)] px-[5vw] overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-0 border-t border-white/10 pt-16">
-        {/* Left Column: Title & Intro */}
-        <div className="lg:col-span-4 flex flex-col justify-start">
-          <div className="mono-label text-muted-foreground mb-8">03 — WORK</div>
-          <h2 className="section-title mb-6 leading-[1.1] tracking-[-0.02em]">
-            Featured Work
+    <section className="bg-black text-white py-[clamp(100px,15vw,250px)] px-[5vw] overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-0 border-t border-white/10 pt-20">
+        {/* Left Column: Sticky Title */}
+        <div className="lg:col-span-4 lg:sticky lg:top-40 h-fit">
+          <div className="mono-label text-muted-foreground mb-10 flex items-center gap-4">
+            <span className="w-10 h-[1px] bg-white/20"></span>
+            02 — OUR EXPERTISE
+          </div>
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-normal mb-8 leading-[0.9] tracking-tighter">
+            Services <br />
+            <span className="italic text-muted-foreground">We Provide</span>
           </h2>
-          <p className="max-w-[360px] text-muted-foreground text-lg leading-relaxed lg:pr-10">
-            Design without compromise. Explore our blend of digital product design, website design, and branding.
+          <p className="max-w-[320px] text-muted-foreground text-xl leading-relaxed">
+            Specialized solutions for a digital-first world. We blend creativity with technical precision to scale your agency.
           </p>
+          
+          <div className="mt-16 hidden lg:block">
+            <div className="w-[1px] h-32 bg-gradient-to-b from-white/20 to-transparent" />
+          </div>
         </div>
 
-        {/* Right Column: Projects Scroll/Grid */}
-        <div className="lg:col-span-8">
-          <div className="flex flex-col gap-24 lg:gap-32">
-            {projects.map((project, index) => (
-              <div 
-                key={project.id} 
-                className="group relative flex flex-col md:flex-row gap-8 items-end"
-              >
-                {/* Project Image */}
-                <div className="relative w-full md:w-[60%] aspect-[4/5] overflow-hidden rounded-sm cursor-pointer">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover grayscale transition-all duration-700 ease-out group-hover:grayscale-0 group-hover:scale-105"
-                  />
-                  {/* Hover Overlay Button */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                    <div className="glass-button px-8 py-4 rounded-full flex items-center gap-3">
-                      <span className="mono-label text-xs">View Project</span>
-                      <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Project Info */}
-                <div className="w-full md:w-[40%] text-left md:pl-8 pb-4">
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.categories.map((cat) => (
-                      <span 
-                        key={cat} 
-                        className="mono-label text-[10px] text-muted-foreground border border-white/10 px-3 py-1 rounded-full"
-                      >
-                        {cat}
-                      </span>
-                    ))}
-                  </div>
-                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-normal leading-tight tracking-tight mb-4">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground font-light text-base max-w-[280px]">
-                    {project.description}
-                  </p>
-                </div>
-
-                {/* Vertical index line */}
-                <div className="absolute -left-[5vw] top-0 bottom-0 w-[1px] bg-white/5 hidden lg:block"></div>
-              </div>
+        {/* Right Column: Services List */}
+        <div className="lg:col-span-8 lg:pl-12">
+          <div className="flex flex-col">
+            {services.map((service, index) => (
+              <ServiceCard key={service.id} service={service} index={index} />
             ))}
           </div>
 
-          <div className="mt-24 pt-12 border-t border-white/5 flex justify-end">
+          <div className="mt-32 pt-20 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-10">
+            <div>
+              <h4 className="text-2xl mb-4">Have a project in mind?</h4>
+              <p className="text-muted-foreground">Let's build something exceptional together.</p>
+            </div>
             <a 
-              href="/work" 
-              className="glass-button px-10 py-5 rounded-full inline-flex items-center gap-4 group"
+              href="/contact" 
+              className="glass-button px-12 py-6 rounded-full inline-flex items-center gap-4 group bg-white text-black"
             >
-              <span className="nav-link">View all projects</span>
-              <div className="w-2 h-2 bg-white rounded-full transition-transform group-hover:scale-125"></div>
+              <span className="font-medium">Get in Touch</span>
+              <div className="w-2 h-2 bg-black rounded-full transition-transform group-hover:scale-125"></div>
             </a>
           </div>
         </div>

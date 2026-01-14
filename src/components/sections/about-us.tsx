@@ -4,7 +4,7 @@ import React from 'react';
  * AboutUs Section
  * 
  * This component clones the "Who we are" and "What we do" informational section 
- * from Estrela Studio. It adheres to the dark theme styling, typography, 
+ * from Codex. It adheres to the dark theme styling, typography, 
  * and layout patterns defined in the design system.
  */
 
@@ -20,9 +20,9 @@ const AboutUs: React.FC = () => {
           </div>
         </div>
         <div className="lg:col-span-8">
-          <p className="section-title max-w-[900px]">
-            Estrela Studio is a people-first design studio that cares as much about your business and product as you do. We’re big on honesty, collaboration, and good coffee, the foundations of every great partnership. No project is too small for our A-game and we pour the same craft and care into every brief. Our promise is simple: to guide you with a steady, nurturing hand and turn your ideas, big or small, into brands, websites, and experiences that truly matter.
-          </p>
+            <p className="section-title max-w-[900px]">
+              Codex is a people-first design studio that cares as much about your business and product as you do. We're big on honesty, collaboration, and good coffee, the foundations of every great partnership. No project is too small for our A-game and we pour the same craft and care into every brief. Our promise is simple: to guide you with a steady, nurturing hand and turn your ideas, big or small, into brands, websites, and experiences that truly matter.
+            </p>
         </div>
       </div>
 

@@ -1,7 +1,8 @@
 "use client";
 
-import React from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 /**
  * Assets provided in the prompt:
@@ -27,120 +28,84 @@ const experienceImages = [
 ];
 
 const IntroExperience = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
   return (
     <section 
-      className="exp relative w-full overflow-hidden bg-background text-foreground section-spacing" 
+      ref={containerRef}
+      className="relative w-full bg-background text-foreground section-spacing overflow-hidden" 
       data-theme="dark"
     >
-      <div className="container relative flex flex-col items-center">
-        
-        {/* Floating Images Grid Overlay - Absolute Positioning for Desktop */}
-        <div className="exp-images hidden lg:block absolute inset-0 pointer-events-none select-none">
-          {experienceImages.map((src, index) => {
-            // Precise positioning based on the "floating grid" design logic
-            const positions = [
-              { top: '5%', left: '4%', width: '12vw', rotate: '-5deg', z: 10 },
-              { top: '15%', right: '6%', width: '10vw', rotate: '8deg', z: 10 },
-              { bottom: '20%', left: '8%', width: '11vw', rotate: '4deg', z: 10 },
-              { bottom: '10%', right: '12%', width: '13vw', rotate: '-6deg', z: 10 },
-              { top: '50%', left: '2%', width: '9vw', rotate: '-2deg', translate: '-50%', z: 5 },
-              { top: '40%', right: '2%', width: '14vw', rotate: '3deg', z: 5 },
-              { top: '-2%', left: '45%', width: '11vw', rotate: '10deg', z: 5 },
-              { bottom: '-5%', left: '30%', width: '10vw', rotate: '-12deg', z: 5 },
-            ];
-            const pos = positions[index];
+      <div className="container relative">
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+          
+          {/* Sticky Left Content */}
+          <div className="lg:sticky lg:top-32 w-full lg:w-5/12 z-20">
+            <div className="mono-label mb-6 text-primary/80 tracking-[0.2em] uppercase text-xs font-semibold">
+              Inside Codex
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl xl:text-6xl font-medium tracking-tight leading-[1.1] text-white mb-10">
+              Crafting competitive <br />
+              <span className="italic font-display text-primary/90">digital experiences</span>
+            </h2>
 
-            return (
-              <figure 
-                key={index} 
-                className="absolute opacity-40 transition-transform duration-700 ease-out hover:opacity-100 hover:scale-110"
-                style={{
-                  top: pos.top,
-                  left: pos.left,
-                  right: pos.right,
-                  bottom: pos.bottom,
-                  width: pos.width,
-                  transform: `rotate(${pos.rotate}) ${pos.translate ? `translateY(${pos.translate})` : ''}`,
-                  zIndex: pos.z
-                }}
-              >
-                <div className="relative overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 rounded-sm aspect-[3/4]">
-                  <Image
-                    src={src}
-                    alt={`Studio experience ${index + 1}`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1100px) 20vw, 15vw"
-                  />
+            <div className="max-w-xl">
+              <p className="text-lg md:text-xl font-light leading-relaxed text-muted-foreground/90 mb-12">
+                Codex is a global branding and digital design agency rooted in 
+                Vienna and Cape Town. We live and breathe our craft, building brands, 
+                websites, and digital products that turn bold ideas into design that matters.
+              </p>
+
+              <div className="group relative inline-flex cursor-pointer">
+                <div className="flex items-center gap-4 bg-white/5 backdrop-blur-md border border-white/10 px-8 py-4 rounded-full transition-all duration-300 group-hover:bg-white/10 group-hover:scale-105 active:scale-95">
+                  <span className="mono-label text-sm text-white group-hover:tracking-[0.1em] transition-all duration-300 uppercase">
+                    Play Showreel
+                  </span>
+                  <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 </div>
-              </figure>
-            );
-          })}
-        </div>
-
-        {/* Central Content Block */}
-        <div className="exp-content relative z-20 flex flex-col items-center text-center max-w-[80vw]">
-          <h2 
-            className="section-title mb-10 text-white" 
-            aria-label="Crafting competitive digital experiences"
-          >
-            <div className="flex flex-wrap justify-center gap-x-4">
-              <span>Crafting</span>
-              <span>competitive</span>
-            </div>
-            <div className="flex flex-wrap justify-center gap-x-4">
-              <span>digital</span>
-              <span className="italic font-display text-primary/80 transition-colors hover:text-white cursor-default">experiences</span>
-            </div>
-          </h2>
-
-          <div className="mono-label mb-8 text-muted-foreground tracking-[0.2em]">
-            Inside Estrela Studio
-          </div>
-
-          <div className="exp-text-wrapper max-w-2xl mx-auto">
-            <p className="text-lg md:text-xl font-light leading-relaxed text-balance text-muted-foreground/90">
-              Estrela Studio is a global branding and digital design agency rooted in 
-              Vienna and Cape Town. We live and breathe our craft, building brands, 
-              websites, and digital products that turn bold ideas into design that matters.
-            </p>
-          </div>
-
-          {/* Showreel Button Trigger */}
-          <div className="mt-16 group relative cursor-pointer">
-            <div className="flex items-center gap-4 bg-white/5 backdrop-blur-md border border-white/10 px-8 py-5 rounded-full transition-all duration-300 group-hover:bg-white/10 group-hover:scale-105 active:scale-95">
-              <span className="mono-label text-white group-hover:tracking-[0.3em] transition-all duration-300">
-                Play Showreel
-              </span>
-              <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Mobile Visible Only Grid (Horizontal scroll or simple stack) */}
-        <div className="flex lg:hidden overflow-x-auto gap-4 py-12 w-full no-scrollbar px-5 mt-10">
-          {experienceImages.slice(0, 4).map((src, index) => (
-            <div key={index} className="flex-shrink-0 w-[60vw] aspect-[3/4] relative rounded-lg overflow-hidden border border-white/10">
-              <Image
-                src={src}
-                alt={`Studio life ${index + 1}`}
-                fill
-                className="object-cover grayscale"
-              />
+          {/* Structured Image Grid Right */}
+          <div className="w-full lg:w-7/12">
+            <div className="grid grid-cols-2 gap-4 md:gap-8">
+              {experienceImages.map((src, index) => {
+                // Variations in vertical offset and aspect ratios for a structured but dynamic look
+                const isEven = index % 2 === 0;
+                // eslint-disable-next-line react-hooks/rules-of-hooks
+                const y = useTransform(scrollYProgress, [0, 1], [0, isEven ? -50 : 50]);
+
+                return (
+                  <motion.div 
+                    key={index}
+                    style={{ y }}
+                    className={`relative overflow-hidden rounded-lg bg-white/5 ${
+                      index === 0 || index === 3 || index === 4 || index === 7 
+                        ? 'aspect-[4/5]' 
+                        : 'aspect-[3/4]'
+                    } ${index % 3 === 0 ? 'mt-12 lg:mt-24' : ''}`}
+                  >
+                    <Image
+                      src={src}
+                      alt={`Studio experience ${index + 1}`}
+                      fill
+                      className="object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out hover:scale-105"
+                      sizes="(max-width: 768px) 50vw, 30vw"
+                    />
+                  </motion.div>
+                );
+              })}
             </div>
-          ))}
+          </div>
+
         </div>
       </div>
-
-      <style jsx global>{`
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .no-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
     </section>
   );
 };

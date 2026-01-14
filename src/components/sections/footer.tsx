@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 /**
- * Footer component for Estrela Studio
+ * Footer component for Codex
  * Includes: "Let's collaborate" CTA, Site index, Social links, Newsletter form, and GMT+2 Clock.
  */
 export default function Footer() {
@@ -74,11 +74,11 @@ export default function Footer() {
             </h6>
             <ul className="space-y-4">
               {[
-                { name: "Instagram", url: "https://www.instagram.com/estrela_digitalstudio/?hl=en" },
-                { name: "Facebook", url: "https://www.facebook.com/profile.php?id=100091661185714" },
-                { name: "LinkedIn", url: "https://www.linkedin.com/company/estrela-digital-studio" },
-                { name: "Awwwards", url: "https://www.awwwards.com/estrelastudio/" },
-                { name: "Behance", url: "https://www.behance.net/estrelastudio" },
+                { name: "Instagram", url: "#" },
+                { name: "Facebook", url: "#" },
+                { name: "LinkedIn", url: "#" },
+                { name: "Awwwards", url: "#" },
+                { name: "Behance", url: "#" },
               ].map((social) => (
                 <li key={social.name}>
                   <a
@@ -132,7 +132,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-[80px] pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="flex gap-8 text-[14px] text-muted-foreground font-mono uppercase tracking-widest">
-            <span>© 2024 Estrela Studio</span>
+            <span>© 2024 Codex</span>
             <Link href="/privacy" className="hover:text-white transition-colors">
               Privacy
             </Link>

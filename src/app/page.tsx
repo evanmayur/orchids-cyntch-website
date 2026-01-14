@@ -6,6 +6,7 @@ import AboutUs from "@/components/sections/about-us";
 import Testimonials from "@/components/sections/testimonials";
 import FAQSection from "@/components/sections/faqs";
 import Footer from "@/components/sections/footer";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export default function Home() {
   return (
@@ -13,11 +14,21 @@ export default function Home() {
       <Navigation />
       <main>
         <Hero />
-        <IntroExperience />
-        <FeaturedWork />
-        <AboutUs />
-        <Testimonials />
-        <FAQSection />
+        <ScrollReveal>
+          <IntroExperience />
+        </ScrollReveal>
+        <ScrollReveal>
+          <FeaturedWork />
+        </ScrollReveal>
+        <ScrollReveal>
+          <AboutUs />
+        </ScrollReveal>
+        <ScrollReveal>
+          <Testimonials />
+        </ScrollReveal>
+        <ScrollReveal>
+          <FAQSection />
+        </ScrollReveal>
       </main>
       <Footer />
     </div>
