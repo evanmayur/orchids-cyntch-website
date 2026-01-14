@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 /**
- * Footer component for Codex
+ * Footer component for Cyntch
  * Includes: "Let's collaborate" CTA, Site index, Social links, Newsletter form, and GMT+2 Clock.
  */
 export default function Footer() {
@@ -132,7 +132,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-[80px] pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="flex gap-8 text-[14px] text-muted-foreground font-mono uppercase tracking-widest">
-            <span>© 2024 Codex</span>
+            <span>© 2026 Cyntch</span>
             <Link href="/privacy" className="hover:text-white transition-colors">
               Privacy
             </Link>

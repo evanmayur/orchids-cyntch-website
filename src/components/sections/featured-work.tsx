@@ -163,15 +163,18 @@ const FeaturedWork = () => {
               <h4 className="text-2xl mb-4">Have a project in mind?</h4>
               <p className="text-muted-foreground">Let's build something exceptional together.</p>
             </div>
-            <Magnetic strength={0.3}>
-              <a 
-                href="/contact" 
-                className="glass-button px-12 py-6 rounded-full inline-flex items-center gap-4 group bg-white text-black"
-              >
-                <span className="font-medium">Get in Touch</span>
-                <div className="w-2 h-2 bg-black rounded-full transition-transform group-hover:scale-125"></div>
-              </a>
-            </Magnetic>
+              <Magnetic strength={0.3}>
+                <a 
+                  href="/contact" 
+                  className="relative group flex items-center justify-center bg-white/5 backdrop-blur-xl border border-white/20 px-12 py-6 rounded-full transition-all duration-700 hover:bg-white/10 hover:border-white/30 shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] overflow-hidden"
+                >
+                  {/* Liquid shine effect */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                  
+                  <span className="font-medium text-white relative z-10">Get in Touch</span>
+                  <div className="w-2 h-2 bg-white rounded-full ml-4 transition-transform group-hover:scale-125 relative z-10"></div>
+                </a>
+              </Magnetic>
           </div>
         </div>
       </div>

@@ -102,16 +102,19 @@ const AboutUs: React.FC = () => {
             </motion.div>
           ))}
           
-          <div className="mt-12">
-            <Magnetic strength={0.3}>
-              <button className="flex items-center gap-4 group cursor-pointer">
-                <span className="mono-label text-sm uppercase tracking-widest border-b border-white/20 pb-1 group-hover:border-white transition-all">
-                  View Full Capabilities
-                </span>
-                <div className="w-1.5 h-1.5 bg-white rounded-full transition-transform group-hover:scale-150" />
-              </button>
-            </Magnetic>
-          </div>
+            <div className="mt-12">
+              <Magnetic strength={0.3}>
+                <button className="relative group flex items-center justify-center bg-white/5 backdrop-blur-xl border border-white/20 px-8 py-4 rounded-full transition-all duration-700 hover:bg-white/10 hover:border-white/30 shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] overflow-hidden">
+                  {/* Liquid shine effect */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                  
+                  <span className="mono-label text-sm uppercase tracking-widest text-white relative z-10">
+                    View Full Capabilities
+                  </span>
+                  <div className="w-1.5 h-1.5 bg-white rounded-full ml-4 transition-transform group-hover:scale-150 relative z-10" />
+                </button>
+              </Magnetic>
+            </div>
         </div>
       </div>
     </section>

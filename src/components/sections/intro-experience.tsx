@@ -46,7 +46,7 @@ const IntroExperience = () => {
           {/* Sticky Left Content */}
           <div className="lg:sticky lg:top-32 w-full lg:w-5/12 z-20">
             <div className="mono-label mb-6 text-primary/80 tracking-[0.2em] uppercase text-xs font-semibold">
-              Inside Codex
+              Inside Cyntch
             </div>
             
             <h2 className="text-4xl md:text-5xl xl:text-6xl font-medium tracking-tight leading-[1.1] text-white mb-10">
@@ -56,7 +56,7 @@ const IntroExperience = () => {
 
             <div className="max-w-xl">
               <p className="text-lg md:text-xl font-light leading-relaxed text-muted-foreground/90 mb-12">
-                Codex is a global branding and digital design agency rooted in 
+                Cyntch is a global branding and digital design agency rooted in 
                 Vienna and Cape Town. We live and breathe our craft, building brands, 
                 websites, and digital products that turn bold ideas into design that matters.
               </p>

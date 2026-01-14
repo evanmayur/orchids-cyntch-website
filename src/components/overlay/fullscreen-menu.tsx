@@ -73,18 +73,21 @@ const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose }) => {
           </button>
         </div>
 
-        {/* Contact Column */}
-        <div className="flex-1 lg:flex flex items-center justify-end lg:justify-start px-[5vw]">
-          <a
-            href="/contact"
-            className="flex items-center gap-3 glass-button px-6 py-3 rounded-full group"
-          >
-            <span className="mono-label text-[11px] font-medium tracking-widest uppercase">
-              Contact Us
-            </span>
-            <div className="w-1.5 h-1.5 rounded-full bg-white group-hover:scale-125 transition-transform" />
-          </a>
-        </div>
+          {/* Contact Column */}
+          <div className="flex-1 lg:flex items-center justify-end lg:justify-start px-[5vw]">
+            <a
+              href="/contact"
+              className="relative group flex items-center justify-center bg-white/5 backdrop-blur-xl border border-white/20 px-8 py-3 rounded-full transition-all duration-700 hover:bg-white/10 hover:border-white/30 shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] overflow-hidden"
+            >
+              {/* Liquid shine effect */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              
+              <span className="mono-label text-[11px] font-medium tracking-widest uppercase text-white relative z-10">
+                Contact Us
+              </span>
+              <div className="w-1.5 h-1.5 rounded-full bg-white ml-3 transition-transform group-hover:scale-125 relative z-10" />
+            </a>
+          </div>
       </div>
 
       {/* Main Content Area */}
@@ -127,15 +130,15 @@ const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose }) => {
                     +27 (0) 78 054 8476
                   </a>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
-                  <a
-                    href="mailto:accounts@codex.studio"
-                    className="text-[18px] hover:text-white/60 transition-colors"
-                  >
-                    Write Us
-                  </a>
-                </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
+                    <a
+                      href="mailto:hello@cyntch.studio"
+                      className="text-[18px] hover:text-white/60 transition-colors"
+                    >
+                      Write Us
+                    </a>
+                  </div>
               </div>
 
               {/* Newsletter Toggle */}
@@ -213,7 +216,7 @@ const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose }) => {
               </div>
             </div>
             <div className="hidden lg:block text-[14px] text-white/20 select-none">
-              © CODEX 2024
+              © CYNTCH 2026
             </div>
           </div>
         </div>

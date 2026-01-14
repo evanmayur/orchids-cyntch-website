@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Magnetic from "@/components/ui/magnetic";
 
 /**
- * Hero component for Codex.
+ * Hero component for Cyntch.
  * Features a full-screen background video, large split-text headline,
  * an animated central icon (represented as a stylized SVG to match the studio aesthetic),
  * and a "Scroll to discover" indicator.

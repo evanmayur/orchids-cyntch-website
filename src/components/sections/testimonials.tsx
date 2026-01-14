@@ -5,7 +5,7 @@ import React from 'react';
 /**
  * TestimonialSection Component
  * 
- * Clones the client testimonials carousel from Codex.
+ * Clones the client testimonials carousel from Cyntch.
  * Based on high-level design: Minimalist, sophisticated aesthetic with sophisticated typography.
  * The quotes use large fonts (approximately 1.25rem - 1.5rem) and the names/roles follow a mono-font style.
  */
@@ -18,27 +18,27 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
     {
-      quote: "The team at Codex have been amazing and critical to our UI/UX journey, they challenge our thoughts for the better and have allowed us to become South Africa's fastest-growing Buy Now Pay Later platform. I cannot recommend them enough.",
+      quote: "The team at Cyntch have been amazing and critical to our UI/UX journey, they challenge our thoughts for the better and have allowed us to become South Africa's fastest-growing Buy Now Pay Later platform. I cannot recommend them enough.",
       name: "Craig Newborn",
       role: "Former CEO, PayJustNow"
     },
     {
-      quote: "Working with Codex has been a genuinely outstanding experience. Their team brings a rare combination of creativity, technical expertise, and collaborative spirit. Codex met us exactly where we were – they listened closely, understood the strategic goals and translated that direction into clear, compelling visual design. They led the project with confidence, and I recommend them without hesitation.",
+      quote: "Working with Cyntch has been a genuinely outstanding experience. Their team brings a rare combination of creativity, technical expertise, and collaborative spirit. Cyntch met us exactly where we were – they listened closely, understood the strategic goals and translated that direction into clear, compelling visual design. They led the project with confidence, and I recommend them without hesitation.",
       name: "Donna Blackwell-Kopotic",
       role: "Sims Lifecycle Service (US)"
     },
     {
-      quote: "The Codex team have a grasp of branding and product design like I've never seen before. We searched the globe for a tech-focused CI design agency and found that the top talent was right here in Cape Town.",
+      quote: "The Cyntch team have a grasp of branding and product design like I've never seen before. We searched the globe for a tech-focused CI design agency and found that the top talent was right here in Cape Town.",
       name: "Colleen Harrison",
       role: "Former Head of Marketing, Payfast"
     },
     {
-      quote: "Working with Natalia and the Codex team is like working with a bomb squad. They know exactly which wires to cut to get exactly the results we were looking for. They are the only agency we have on speed dial.",
+      quote: "Working with Natalia and the Cyntch team is like working with a bomb squad. They know exactly which wires to cut to get exactly the results we were looking for. They are the only agency we have on speed dial.",
       name: "Jason Bagley",
       role: "Founder and CEO, Growth Experts (US)"
     },
     {
-      quote: "Working with Natalia and the Codex team on the HelpGuide rebrand has been a true pleasure. Their design approach is strategic, thoughtful, and truly user-centric, and we couldn't be more pleased with the results.",
+      quote: "Working with Natalia and the Cyntch team on the HelpGuide rebrand has been a true pleasure. Their design approach is strategic, thoughtful, and truly user-centric, and we couldn't be more pleased with the results.",
       name: "Melinda Smith",
       role: "Executive Director & Editor in Chief, HelpGuide (US)"
     }
