@@ -4,7 +4,6 @@ import React from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import Magnetic from "@/components/ui/magnetic";
 
 const services = [
   {
@@ -106,12 +105,10 @@ const ServiceCard = ({ service, index }: { service: typeof services[0], index: n
         <p className="text-muted-foreground font-light text-lg max-w-[400px] mb-8">
           {service.description}
         </p>
-        <Magnetic strength={0.2}>
-          <button className="text-white flex items-center gap-3 group/btn">
-            <span className="mono-label text-sm uppercase tracking-widest border-b border-white/20 pb-1 group-hover/btn:border-white transition-colors">Learn More</span>
-            <div className="w-1.5 h-1.5 bg-white rounded-full transition-transform group-hover/btn:scale-150"></div>
-          </button>
-        </Magnetic>
+        <button className="text-white flex items-center gap-3 group/btn">
+          <span className="mono-label text-sm uppercase tracking-widest border-b border-white/20 pb-1 group-hover/btn:border-white transition-colors">Learn More</span>
+          <div className="w-1.5 h-1.5 bg-white rounded-full transition-transform group-hover/btn:scale-150"></div>
+        </button>
       </motion.div>
 
       {/* Index Number */}

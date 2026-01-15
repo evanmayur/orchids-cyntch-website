@@ -4,7 +4,6 @@ import "./globals.css";
 import { VisualEditsMessenger } from "orchids-visual-edits";
 import Script from "next/script";
 import { SmoothScroll } from "@/components/ui/smooth-scroll";
-import ScrollProgress from "@/components/ui/scroll-progress";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

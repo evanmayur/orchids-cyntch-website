@@ -1,12 +1,12 @@
-"use client";
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
 /**
  * AboutUs Section
  * 
- * Updated to reflect the new agency status and services.
+ * This component clones the "Who we are" and "What we do" informational section 
+ * from Codex. It adheres to the dark theme styling, typography, 
+ * and layout patterns defined in the design system.
  */
 
 const services = [
@@ -34,13 +34,13 @@ const services = [
 
 const AboutUs: React.FC = () => {
   return (
-    <section className="bg-black text-white py-[clamp(100px,15vw,200px)] px-[5vw] flex flex-col gap-y-24 md:gap-y-40 overflow-hidden">
+    <section className="bg-background text-foreground section-spacing px-[5vw] flex flex-col gap-y-24 md:gap-y-40">
       {/* Who We Are Section */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-12 items-start">
         <div className="lg:col-span-4 self-start">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-white" />
-            <h2 className="mono-label text-muted-foreground uppercase tracking-widest">03 — Who we are</h2>
+            <span className="w-2 h-2 rounded-full bg-primary" />
+            <h2 className="mono-label text-muted-foreground">Who we are</h2>
           </div>
         </div>
           <div className="lg:col-span-8">

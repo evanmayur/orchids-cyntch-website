@@ -32,18 +32,20 @@ const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
           </div>
         </div>
       </button>
-      <div
-        className={cn(
-          "overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]",
-          isOpen ? "max-height-[500px] pb-[3rem] md:pb-[5rem]" : "max-height-0"
-        )}
-      >
-        <p className="text-[1.125rem] md:text-[1.375rem] leading-[1.6] font-light text-white/70 max-w-[800px]">
-          {answer}
-        </p>
+        <div
+          className={cn(
+            "grid transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]",
+            isOpen ? "grid-rows-[1fr] pb-[3rem] md:pb-[5rem]" : "grid-rows-[0fr]"
+          )}
+        >
+          <div className="overflow-hidden">
+            <p className="text-[1.125rem] md:text-[1.375rem] leading-[1.6] font-light text-white/70 max-w-[800px]">
+              {answer}
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-  );
+    );
 };
 
 const FAQSection = () => {

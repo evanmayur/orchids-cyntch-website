@@ -2,7 +2,6 @@
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from "framer-motion";
-import Magnetic from "@/components/ui/magnetic";
 
 /**
  * Hero component for Codex Infotech.
@@ -17,11 +16,9 @@ const Hero = () => {
     offset: ["start start", "end start"],
   });
 
-    const videoY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-    const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
-    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
+  const videoY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
     <section 
@@ -67,10 +64,7 @@ const Hero = () => {
         </h1>
 
         {/* Central Animated Icon (Fallback Style for Lottie if library not present) */}
-        <motion.div 
-          style={{ rotate }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[25vw] h-[25vw] max-w-[480px] max-h-[480px] pointer-events-none opacity-80 mix-blend-screen overflow-visible"
-        >
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[25vw] h-[25vw] max-w-[480px] max-h-[480px] pointer-events-none opacity-80 mix-blend-screen overflow-visible">
           <svg
             viewBox="0 0 480 480"
             className="w-full h-full animate-pulse duration-[4000ms]"
@@ -86,7 +80,7 @@ const Hero = () => {
               />
             </g>
           </svg>
-        </motion.div>
+        </div>
       </motion.div>
 
       {/* "Scroll to discover" Indicator */}
@@ -94,16 +88,14 @@ const Hero = () => {
         style={{ opacity }}
         className="absolute bottom-[4vh] left-1/2 -translate-x-1/2 z-20 hidden md:block select-none"
       >
-        <Magnetic strength={0.2}>
-          <span className="mono-label text-white/50 text-[10px] tracking-[0.2em] uppercase flex flex-col items-center gap-4 group cursor-pointer">
-            <span className="animate-in fade-in slide-in-from-bottom-2 duration-1000 delay-500 fill-mode-both">
-              Scroll to discover our world
-            </span>
-            <div className="w-[1px] h-12 bg-white/20 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1/2 bg-white animate-[scroll-hint_2s_infinite_ease-in-out]"></div>
-            </div>
+        <span className="mono-label text-white/50 text-[10px] tracking-[0.2em] uppercase flex flex-col items-center gap-4 group cursor-pointer">
+          <span className="animate-in fade-in slide-in-from-bottom-2 duration-1000 delay-500 fill-mode-both">
+            Scroll to discover our world
           </span>
-        </Magnetic>
+          <div className="w-[1px] h-12 bg-white/20 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1/2 bg-white animate-[scroll-hint_2s_infinite_ease-in-out]"></div>
+          </div>
+        </span>
       </motion.div>
 
 
