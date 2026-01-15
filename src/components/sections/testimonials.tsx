@@ -17,37 +17,37 @@ interface Testimonial {
 }
 
 const testimonials: Testimonial[] = [
-  {
-    quote: "The team at Codex Infotech have been amazing and critical to our UI/UX journey, they challenge our thoughts for the better and have allowed us to become South Africa's fastest-growing Buy Now Pay Later platform. I cannot recommend them enough.",
-    name: "Craig Newborn",
-    role: "Former CEO, PayJustNow"
-  },
-  {
-    quote: "Working with Codex Infotech has been a genuinely outstanding experience. Their team brings a rare combination of creativity, technical expertise, and collaborative spirit. Codex Infotech met us exactly where we were – they listened closely, understood the strategic goals and translated that direction into clear, compelling visual design. They led the project with confidence, and I recommend them without hesitation.",
-    name: "Donna Blackwell-Kopotic",
-    role: "Sims Lifecycle Service (US)"
-  },
-  {
-    quote: "The Codex Infotech team have a grasp of branding and product design like I've never seen before. We searched the globe for a tech-focused CI design agency and found that the top talent was right here in Bhavnagar.",
-    name: "Colleen Harrison",
-    role: "Former Head of Marketing, Payfast"
-  },
-  {
-    quote: "Working with Natalia and the Codex Infotech team is like working with a bomb squad. They know exactly which wires to cut to get exactly the results we were looking for. They are the only agency we have on speed dial.",
-    name: "Jason Bagley",
-    role: "Founder and CEO, Growth Experts (US)"
-  },
-  {
-    quote: "Working with Natalia and the Codex Infotech team on the HelpGuide rebrand has been a true pleasure. Their design approach is strategic, thoughtful, and truly user-centric, and we couldn't be more pleased with the results.",
-    name: "Melinda Smith",
-    role: "Executive Director & Editor in Chief, HelpGuide (US)"
-  }
+    {
+      quote: "The team at Codex Infotech have been amazing and critical to our UI/UX journey, they challenge our thoughts for the better and have allowed us to become South Africa's fastest-growing Buy Now Pay Later platform. I cannot recommend them enough.",
+      name: "Craig Newborn",
+      role: "Former CEO, PayJustNow"
+    },
+    {
+      quote: "Working with Codex Infotech has been a genuinely outstanding experience. Their team brings a rare combination of creativity, technical expertise, and collaborative spirit. Codex Infotech met us exactly where we were – they listened closely, understood the strategic goals and translated that direction into clear, compelling visual design. They led the project with confidence, and I recommend them without hesitation.",
+      name: "Donna Blackwell-Kopotic",
+      role: "Sims Lifecycle Service (US)"
+    },
+    {
+      quote: "The Codex Infotech team have a grasp of branding and product design like I've never seen before. We searched the globe for a tech-focused CI design agency and found that the top talent was right here in Cape Town.",
+      name: "Colleen Harrison",
+      role: "Former Head of Marketing, Payfast"
+    },
+    {
+      quote: "Working with Natalia and the Codex Infotech team is like working with a bomb squad. They know exactly which wires to cut to get exactly the results we were looking for. They are the only agency we have on speed dial.",
+      name: "Jason Bagley",
+      role: "Founder and CEO, Growth Experts (US)"
+    },
+    {
+      quote: "Working with Natalia and the Codex Infotech team on the HelpGuide rebrand has been a true pleasure. Their design approach is strategic, thoughtful, and truly user-centric, and we couldn't be more pleased with the results.",
+      name: "Melinda Smith",
+      role: "Executive Director & Editor in Chief, HelpGuide (US)"
+    }
 ];
 
 const Testimonials = () => {
   return (
-    <section
-      className="bg-black text-white section-spacing overflow-hidden"
+    <section 
+      className="bg-black text-white section-spacing overflow-hidden" 
       style={{ paddingTop: 'clamp(80px, 12vw, 200px)', paddingBottom: 'clamp(80px, 12vw, 200px)' }}
     >
       <div className="container mx-auto px-[5vw]">
@@ -64,13 +64,13 @@ const Testimonials = () => {
         {/* Testimonials List */}
         <div className="space-y-32">
           {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
+            <div 
+              key={index} 
               className="group relative border-t border-white/10 pt-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
             >
               {/* Quote Section */}
               <div className="lg:col-span-8">
-                <blockquote
+                <blockquote 
                   className="text-[1.5rem] md:text-[2.25rem] lg:text-[2.5rem] leading-[1.2] font-normal tracking-tight balance transition-opacity duration-700 hover:opacity-100 opacity-90"
                 >
                   {testimonial.quote}
@@ -94,14 +94,14 @@ const Testimonials = () => {
 
         {/* Optional Carousel Nav Placeholder - Based on Studio behavior of "Reveal on Scroll" */}
         <div className="mt-20 flex justify-between items-center border-t border-white/10 pt-8 hidden">
-          <div className="mono-label text-[#a1a1a1]">
-            Scroll to explore more
-          </div>
-          <div className="flex gap-4">
-            <div className="w-2 h-2 rounded-full bg-white opacity-100"></div>
-            <div className="w-2 h-2 rounded-full bg-white opacity-20"></div>
-            <div className="w-2 h-2 rounded-full bg-white opacity-20"></div>
-          </div>
+             <div className="mono-label text-[#a1a1a1]">
+                Scroll to explore more
+             </div>
+             <div className="flex gap-4">
+                <div className="w-2 h-2 rounded-full bg-white opacity-100"></div>
+                <div className="w-2 h-2 rounded-full bg-white opacity-20"></div>
+                <div className="w-2 h-2 rounded-full bg-white opacity-20"></div>
+             </div>
         </div>
       </div>
 

@@ -35,31 +35,31 @@ const IntroExperience = () => {
   });
 
   return (
-    <section
+    <section 
       ref={containerRef}
-      className="relative w-full bg-background text-foreground section-spacing overflow-hidden"
+      className="relative w-full bg-background text-foreground section-spacing overflow-hidden" 
       data-theme="dark"
     >
       <div className="container relative">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+          
+              {/* Sticky Left Content */}
+                <div className="lg:sticky lg:top-32 w-full lg:w-5/12 z-20">
+                  <div className="mono-label mb-6 text-primary/80 tracking-[0.2em] uppercase text-xs font-semibold">
+                    Inside Codex Infotech
+                  </div>
+                  
+                  <h2 className="text-4xl md:text-5xl xl:text-6xl font-medium tracking-tight leading-[1.1] text-white mb-10">
+                    Crafting competitive <br />
+                    <span className="italic font-display text-primary/90">digital experiences</span>
+                  </h2>
 
-          {/* Sticky Left Content */}
-          <div className="lg:sticky lg:top-32 w-full lg:w-5/12 z-20">
-            <div className="mono-label mb-6 text-primary/80 tracking-[0.2em] uppercase text-xs font-semibold">
-              Inside Codex Infotech
-            </div>
-
-            <h2 className="text-4xl md:text-5xl xl:text-6xl font-medium tracking-tight leading-[1.1] text-white mb-10">
-              Crafting competitive <br />
-              <span className="italic font-display text-primary/90">digital experiences</span>
-            </h2>
-
-            <div className="max-w-xl">
-              <p className="text-lg md:text-xl font-light leading-relaxed text-muted-foreground/90 mb-12">
-                Codex Infotech is a global branding and digital design agency rooted in
-                Bhavnagar. We live and breathe our craft, building brands,
-                websites, and digital products that turn bold ideas into design that matters.
-              </p>
+                  <div className="max-w-xl">
+                    <p className="text-lg md:text-xl font-light leading-relaxed text-muted-foreground/90 mb-12">
+                      Codex Infotech is a global branding and digital design agency rooted in 
+                      Vienna and Cape Town. We live and breathe our craft, building brands, 
+                      websites, and digital products that turn bold ideas into design that matters.
+                    </p>
 
 
             </div>
@@ -74,15 +74,16 @@ const IntroExperience = () => {
                 // eslint-disable-next-line react-hooks/rules-of-hooks
                 const y = useTransform(scrollYProgress, [0, 1], [0, isEven ? -50 : 50]);
 
-                return (
-                  <motion.div
-                    key={index}
-                    style={{ y, willChange: "transform" }}
-                    className={`relative overflow-hidden rounded-lg bg-white/5 transform-gpu ${index === 0 || index === 3 || index === 4 || index === 7
-                        ? 'aspect-[4/5]'
-                        : 'aspect-[3/4]'
+                  return (
+                    <motion.div 
+                      key={index}
+                      style={{ y, willChange: "transform" }}
+                      className={`relative overflow-hidden rounded-lg bg-white/5 transform-gpu ${
+                        index === 0 || index === 3 || index === 4 || index === 7 
+                          ? 'aspect-[4/5]' 
+                          : 'aspect-[3/4]'
                       } ${index % 3 === 0 ? 'mt-12 lg:mt-24' : ''}`}
-                  >
+                    >
                     <Image
                       src={src}
                       alt={`Studio experience ${index + 1}`}
