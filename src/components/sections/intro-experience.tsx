@@ -36,6 +36,7 @@ const IntroExperience = () => {
 
   return (
     <section 
+      id="intro-experience"
       ref={containerRef}
       className="relative w-full bg-background text-foreground section-spacing overflow-hidden" 
       data-theme="dark"

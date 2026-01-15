@@ -36,7 +36,7 @@ const services = [
 
 const AboutUs: React.FC = () => {
   return (
-    <section className="bg-background text-foreground section-spacing px-[5vw] flex flex-col gap-y-24 md:gap-y-40">
+    <section id="about-us" className="bg-background text-foreground section-spacing px-[5vw] flex flex-col gap-y-24 md:gap-y-40">
       {/* Who We Are Section */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-12 items-start">
         <div className="lg:col-span-4 self-start">

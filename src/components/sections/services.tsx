@@ -9,42 +9,49 @@ const MotionLink = motion.create(Link);
 const services = [
   {
     id: "01",
+    slug: "web-designing",
     title: "Web Designing",
     description: "Elevating digital identities through high-end visual design and immersive UI/UX experiences.",
     tags: ["UI/UX", "Product Design", "Interaction"]
   },
   {
     id: "02",
+    slug: "web-development",
     title: "Web Development",
     description: "Building robust, high-performance web applications tailored for scalability and speed.",
     tags: ["Full-stack", "E-commerce", "Next.js"]
   },
   {
     id: "03",
+    slug: "automation",
     title: "Automation",
     description: "Streamlining business operations with intelligent automation and custom workflow solutions.",
     tags: ["AI", "Workflow", "Efficiency"]
   },
   {
     id: "04",
+    slug: "app-development",
     title: "App Development",
     description: "Creating seamless native and cross-platform mobile experiences for iOS and Android.",
     tags: ["iOS", "Android", "React Native"]
   },
   {
     id: "05",
+    slug: "data-science",
     title: "Data Science",
     description: "Turning complex data into actionable insights through advanced analysis and predictive modeling.",
     tags: ["Analysis", "ML", "Big Data"]
   },
   {
     id: "06",
+    slug: "seo-solutions",
     title: "SEO Solutions",
     description: "Dominating search results and driving organic growth through data-driven SEO strategies.",
     tags: ["Organic", "Strategy", "Growth"]
   },
   {
     id: "07",
+    slug: "brand-design",
     title: "Brand Design",
     description: "Crafting cohesive and memorable brand stories that resonate with your target audience.",
     tags: ["Identity", "Strategy", "Visuals"]
@@ -88,14 +95,29 @@ const ServiceCard = ({ service, index, progress, range, targetScale }: {
             </p>
           </div>
           
-          <div className="flex flex-wrap gap-2 mt-8">
-            {service.tags.map(tag => (
-              <span key={tag} className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-widest text-white/50">
-                {tag}
-              </span>
-            ))}
+            <div className="flex flex-wrap gap-2 mt-8">
+              {service.tags.map(tag => (
+                <span key={tag} className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-widest text-white/50">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            
+            <Link 
+              href={`/services/${service.slug}`}
+              className="inline-flex items-center gap-2 mt-6 text-white/60 hover:text-white transition-colors duration-300 group/link"
+            >
+              <span className="text-sm uppercase tracking-widest">Read More</span>
+              <svg 
+                className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-300" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
           </div>
-        </div>
 
         {/* Visual Side */}
         <div className="hidden md:flex flex-1 bg-white/5 border-l border-white/10 overflow-hidden group relative">
@@ -137,7 +159,7 @@ const Services = () => {
   const bgOpacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 0.4, 0.4, 0]);
 
   return (
-    <section ref={container} className="relative bg-black">
+    <section id="services" ref={container} className="relative bg-black">
       {/* Background Video (Scaled down floating element) */}
       <motion.div 
         style={{ scale: bgScale, opacity: bgOpacity }}

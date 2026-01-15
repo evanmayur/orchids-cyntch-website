@@ -109,10 +109,7 @@ export default function Footer() {
                     <span className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white" />
                     Write Us
                   </a>
-                <button className="flex items-center gap-3 hover:text-white transition-colors group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white" />
-                  Newsletter Signup
-                </button>
+
               </div>
             </div>
           </div>
