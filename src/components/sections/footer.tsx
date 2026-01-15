@@ -14,12 +14,14 @@ export default function Footer() {
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      // Adjusting to GMT+2 specifically as requested
-      const gmt2Time = new Date(now.getTime() + (now.getTimezoneOffset() + 120) * 60000);
-      const hours = String(gmt2Time.getHours()).padStart(2, "0");
-      const minutes = String(gmt2Time.getMinutes()).padStart(2, "0");
-      const seconds = String(gmt2Time.getSeconds()).padStart(2, "0");
-      setTime(`${hours}:${minutes}:${seconds}`);
+      const istTime = now.toLocaleTimeString("en-IN", {
+        timeZone: "Asia/Kolkata",
+        hour12: false,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      });
+      setTime(istTime);
     };
 
     updateTime();
@@ -78,35 +80,35 @@ export default function Footer() {
 
           {/* Contact Section */}
           <div className="md:col-span-6 flex flex-col items-end">
-            <Link
-              href="/contact"
-              className="group relative bg-white/5 backdrop-blur-xl border border-white/10 px-12 py-10 rounded-2xl w-full max-w-[500px] flex items-center justify-between transition-all hover:bg-white/10 hover:border-white/20 overflow-hidden mb-12"
-            >
-              {/* Liquid shine effect */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-              
-              <span className="text-2xl font-light tracking-tight">Contact Us</span>
-              <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
-            </Link>
+            <a
+                href="mailto:codexinfotechh@gmail.com"
+                className="group relative bg-white/5 backdrop-blur-xl border border-white/10 px-12 py-10 rounded-2xl w-full max-w-[500px] flex items-center justify-between transition-all hover:bg-white/10 hover:border-white/20 overflow-hidden mb-12"
+              >
+                {/* Liquid shine effect */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                
+                <span className="text-2xl font-light tracking-tight">Contact Us</span>
+                <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
+              </a>
 
-            <div className="text-right space-y-6 max-w-[500px] w-full">
-              <div>
-                <p className="text-white/60 text-lg mb-1">Tell us about your project.</p>
-                <p className="text-white text-lg">Let&apos;s collaborate.</p>
-              </div>
-
-              <div className="flex flex-col items-end gap-2 text-white/80">
-                <div className="text-[14px] font-mono mb-4">
-                  {time} (GMT+2)
+              <div className="text-right space-y-6 max-w-[500px] w-full">
+                <div>
+                  <p className="text-white/60 text-lg mb-1">Tell us about your project.</p>
+                  <p className="text-white text-lg">Let&apos;s collaborate.</p>
                 </div>
-                <Link href="tel:+27780548476" className="flex items-center gap-3 hover:text-white transition-colors group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white" />
-                  +27 (0) 78 054 8476
-                </Link>
-                <Link href="mailto:hello@codexinfotech.com" className="flex items-center gap-3 hover:text-white transition-colors group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white" />
-                  Write Us
-                </Link>
+
+                <div className="flex flex-col items-end gap-2 text-white/80">
+                  <div className="text-[14px] font-mono mb-4">
+                    {time} (IST)
+                  </div>
+                  <a href="tel:+917862003533" className="flex items-center gap-3 hover:text-white transition-colors group">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white" />
+                    +91 78620 03533
+                  </a>
+                  <a href="mailto:codexinfotechh@gmail.com" className="flex items-center gap-3 hover:text-white transition-colors group">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white" />
+                    Write Us
+                  </a>
                 <button className="flex items-center gap-3 hover:text-white transition-colors group">
                   <span className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white" />
                   Newsletter Signup

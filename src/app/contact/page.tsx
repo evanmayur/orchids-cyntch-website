@@ -26,24 +26,24 @@ export default function ContactPage() {
             <div className="space-y-12">
               <div>
                 <h2 className="text-sm uppercase tracking-widest text-white/40 mb-6 font-mono">Inquiries</h2>
-                <a href="mailto:hello@codexinfotech.com" className="text-3xl md:text-4xl hover:text-white/60 transition-colors">
-                  hello@codexinfotech.com
-                </a>
+                  <a href="mailto:codexinfotechh@gmail.com" className="text-xl md:text-2xl hover:text-white/60 transition-colors">
+                    codexinfotechh@gmail.com
+                  </a>
               </div>
               
-              <div>
-                <h2 className="text-sm uppercase tracking-widest text-white/40 mb-6 font-mono">Calls</h2>
-                <a href="tel:+27780548476" className="text-3xl md:text-4xl hover:text-white/60 transition-colors">
-                  +27 (0) 78 054 8476
-                </a>
-              </div>
+                <div>
+                  <h2 className="text-sm uppercase tracking-widest text-white/40 mb-6 font-mono">Calls</h2>
+                  <a href="tel:+917862003533" className="text-3xl md:text-4xl hover:text-white/60 transition-colors">
+                    +91 78620 03533
+                  </a>
+                </div>
 
               <div>
                 <h2 className="text-sm uppercase tracking-widest text-white/40 mb-6 font-mono">Location</h2>
-                <p className="text-2xl text-white/80">
-                  Global / Remote <br />
-                  Based in South Africa
-                </p>
+                  <p className="text-2xl text-white/80">
+                    Global / Remote <br />
+                    Bhavnagar, India
+                  </p>
               </div>
             </div>
 

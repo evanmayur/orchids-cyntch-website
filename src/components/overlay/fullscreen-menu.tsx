@@ -12,16 +12,16 @@ const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose }) => {
   const [currentTime, setCurrentTime] = useState("");
   const [newsletterOpen, setNewsletterOpen] = useState(false);
 
-  useEffect(() => {
-    const updateTime = () => {
-      const gmt2 = new Date().toLocaleTimeString("en-GB", {
-        timeZone: "Africa/Johannesburg", // GMT+2 approximation
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-      });
-      setCurrentTime(gmt2);
-    };
+    useEffect(() => {
+      const updateTime = () => {
+        const ist = new Date().toLocaleTimeString("en-IN", {
+          timeZone: "Asia/Kolkata",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        });
+        setCurrentTime(ist);
+      };
 
     updateTime();
     const interval = setInterval(updateTime, 1000);
@@ -73,21 +73,21 @@ const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose }) => {
           </button>
         </div>
 
-          {/* Contact Column */}
-          <div className="flex-1 lg:flex items-center justify-end lg:justify-start px-[5vw]">
-            <a
-              href="/contact"
-              className="relative group flex items-center justify-center bg-white/5 backdrop-blur-xl border border-white/20 px-8 py-3 rounded-full transition-all duration-700 hover:bg-white/10 hover:border-white/30 shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] overflow-hidden"
-            >
-              {/* Liquid shine effect */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-              
-              <span className="mono-label text-[11px] font-medium tracking-widest uppercase text-white relative z-10">
-                Contact Us
-              </span>
-              <div className="w-1.5 h-1.5 rounded-full bg-white ml-3 transition-transform group-hover:scale-125 relative z-10" />
-            </a>
-          </div>
+            {/* Contact Column */}
+            <div className="flex-1 lg:flex items-center justify-end lg:justify-start px-[5vw]">
+              <a
+                href="mailto:codexinfotechh@gmail.com"
+                className="relative group flex items-center justify-center bg-white/5 backdrop-blur-xl border border-white/20 px-8 py-3 rounded-full transition-all duration-700 hover:bg-white/10 hover:border-white/30 shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] overflow-hidden"
+              >
+                {/* Liquid shine effect */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                
+                <span className="mono-label text-[11px] font-medium tracking-widest uppercase text-white relative z-10">
+                  Contact Us
+                </span>
+                <div className="w-1.5 h-1.5 rounded-full bg-white ml-3 transition-transform group-hover:scale-125 relative z-10" />
+              </a>
+            </div>
       </div>
 
       {/* Main Content Area */}
@@ -121,24 +121,24 @@ const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose }) => {
             {/* Contact Info */}
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
-                  <a
-                    href="tel:+27780548476"
-                    className="text-[18px] hover:text-white/60 transition-colors"
-                  >
-                    +27 (0) 78 054 8476
-                  </a>
-                </div>
                   <div className="flex items-center gap-3">
                     <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
-                      <a
-                        href="mailto:hello@codexinfotech.com"
-                        className="text-[18px] hover:text-white/60 transition-colors"
-                      >
-                        Write Us
-                      </a>
-                    </div>
+                    <a
+                      href="tel:+917862003533"
+                      className="text-[18px] hover:text-white/60 transition-colors"
+                    >
+                      +91 78620 03533
+                    </a>
+                  </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
+                        <a
+                          href="mailto:codexinfotechh@gmail.com"
+                          className="text-[18px] hover:text-white/60 transition-colors"
+                        >
+                          Write Us
+                        </a>
+                      </div>
                 </div>
 
                 {/* Newsletter Toggle */}
@@ -209,12 +209,12 @@ const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose }) => {
 
             {/* Footer Clock & Detail */}
             <div className="flex items-end justify-between mt-12 pt-8 border-t border-white/5">
-              <div className="flex flex-col gap-1">
-                <span className="text-[14px] text-muted-foreground">Local Time</span>
-                <div className="text-[16px] font-mono tracking-wider">
-                  {currentTime} <span className="text-white/30 ml-1">(GMT+2)</span>
+                <div className="flex flex-col gap-1">
+                  <span className="text-[14px] text-muted-foreground">Local Time</span>
+                  <div className="text-[16px] font-mono tracking-wider">
+                    {currentTime} <span className="text-white/30 ml-1">(IST)</span>
+                  </div>
                 </div>
-              </div>
               <div className="hidden lg:block text-[14px] text-white/20 select-none uppercase tracking-widest font-mono">
                 © CODEX INFOTECH 2026
               </div>
