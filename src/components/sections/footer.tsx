@@ -57,13 +57,11 @@ export default function Footer() {
               Social
             </h6>
             <ul className="space-y-4">
-              {[
-                { name: "Instagram", url: "#" },
-                { name: "Facebook", url: "#" },
-                { name: "LinkedIn", url: "#" },
-                { name: "Awwwards", url: "#" },
-                { name: "Behance", url: "#" },
-              ].map((social) => (
+{[
+                  { name: "Instagram", url: "#" },
+                  { name: "Facebook", url: "#" },
+                  { name: "LinkedIn", url: "#" },
+                ].map((social) => (
                 <li key={social.name}>
                   <a
                     href={social.url}

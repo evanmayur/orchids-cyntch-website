@@ -2,6 +2,7 @@
 
 import { ReactLenis } from "lenis/react";
 import { ReactNode } from "react";
+import ScrollProgress from "@/components/ui/scroll-progress";
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
   return (
@@ -16,6 +17,7 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
         infinite: false,
       }}
     >
+      <ScrollProgress />
       {children}
     </ReactLenis>
   );
