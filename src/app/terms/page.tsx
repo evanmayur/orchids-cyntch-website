@@ -4,69 +4,58 @@ import Navigation from "@/components/sections/navigation";
 import Footer from "@/components/sections/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { motion } from "framer-motion";
-import { Shield, Lock, Eye, Database, Cookie, Share2, ShieldCheck, FileKey, Scale, Link2, RefreshCw, Mail } from "lucide-react";
+import { FileText, Briefcase, CreditCard, Copyright, Users, AlertTriangle, XCircle, Blocks, Scale, RefreshCw, Mail } from "lucide-react";
 
 const sections = [
   {
-    icon: Shield,
+    icon: FileText,
     number: "01",
     title: "Introduction",
     content: (
       <>
         <p>
-          Welcome to Codex Infotech.
-          Your privacy is important to us. This Privacy Policy explains how we collect, use, store, and protect your personal information when you visit our website or use our services.
+          These Terms & Conditions govern your use of Codex Infotech&apos;s website and services.
         </p>
         <p className="mt-4">
-          By using our website, you agree to this Privacy Policy.
+          By accessing our website or hiring our services, you agree to these Terms.
         </p>
       </>
     ),
   },
   {
-    icon: Eye,
+    icon: Briefcase,
     number: "02",
-    title: "Information We Collect",
+    title: "Services",
     content: (
       <>
-        <p className="mb-6">We may collect the following information:</p>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
-            <h4 className="text-white font-medium mb-4">Personal Information</h4>
-            <ul className="space-y-2 text-white/60">
-              <li className="flex items-center gap-2"><span className="w-1 h-1 bg-white/40 rounded-full" />Name</li>
-              <li className="flex items-center gap-2"><span className="w-1 h-1 bg-white/40 rounded-full" />Email address</li>
-              <li className="flex items-center gap-2"><span className="w-1 h-1 bg-white/40 rounded-full" />Phone number</li>
-              <li className="flex items-center gap-2"><span className="w-1 h-1 bg-white/40 rounded-full" />Company or business details</li>
-              <li className="flex items-center gap-2"><span className="w-1 h-1 bg-white/40 rounded-full" />Project-related information</li>
-            </ul>
-          </div>
-          <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
-            <h4 className="text-white font-medium mb-4">Technical Information</h4>
-            <ul className="space-y-2 text-white/60">
-              <li className="flex items-center gap-2"><span className="w-1 h-1 bg-white/40 rounded-full" />IP address</li>
-              <li className="flex items-center gap-2"><span className="w-1 h-1 bg-white/40 rounded-full" />Browser type</li>
-              <li className="flex items-center gap-2"><span className="w-1 h-1 bg-white/40 rounded-full" />Device and operating system</li>
-              <li className="flex items-center gap-2"><span className="w-1 h-1 bg-white/40 rounded-full" />Pages visited and time spent</li>
-              <li className="flex items-center gap-2"><span className="w-1 h-1 bg-white/40 rounded-full" />Cookies and analytics data</li>
-            </ul>
-          </div>
+        <p className="mb-6">We provide services including but not limited to:</p>
+        <div className="grid sm:grid-cols-2 gap-4 mb-6">
+          {[
+            "Website design & development",
+            "UI/UX design",
+            "Digital marketing",
+            "Branding & consulting",
+          ].map((item, i) => (
+            <div key={i} className="flex items-center gap-3 bg-white/5 rounded-lg p-3 border border-white/10">
+              <div className="w-2 h-2 rounded-full bg-white/40" />
+              <span className="text-white/70 text-sm">{item}</span>
+            </div>
+          ))}
         </div>
+        <p>All services are provided as per agreed proposals or contracts.</p>
       </>
     ),
   },
   {
-    icon: Database,
+    icon: CreditCard,
     number: "03",
-    title: "How We Use Your Information",
+    title: "Payments",
     content: (
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="space-y-3">
         {[
-          "Respond to inquiries and provide services",
-          "Communicate regarding projects or support",
-          "Improve website functionality and performance",
-          "Send updates or marketing emails (only with consent)",
-          "Ensure website security and prevent misuse",
+          "Payments must be made according to the agreed schedule",
+          "Late payments may result in project delays or suspension",
+          "Advance payments are non-refundable unless stated otherwise",
         ].map((item, i) => (
           <div key={i} className="bg-white/5 rounded-xl p-4 border border-white/10 flex items-start gap-3">
             <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-xs text-white/60 flex-shrink-0 mt-0.5">
@@ -79,76 +68,38 @@ const sections = [
     ),
   },
   {
-    icon: Cookie,
+    icon: Copyright,
     number: "04",
-    title: "Cookies",
+    title: "Intellectual Property",
     content: (
-      <p>
-        Our website uses cookies to enhance user experience and analyze traffic.
-        You can disable cookies through your browser settings, but some features may not work properly.
-      </p>
+      <div className="space-y-3">
+        {[
+          "All designs, code, and content remain our property until full payment is received",
+          "After full payment, ownership of final deliverables is transferred to the client",
+          "We reserve the right to display completed projects in our portfolio unless restricted in writing",
+        ].map((item, i) => (
+          <div key={i} className="flex items-start gap-3">
+            <div className="w-5 h-5 rounded bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <Copyright size={12} className="text-white/60" />
+            </div>
+            <span className="text-white/70">{item}</span>
+          </div>
+        ))}
+      </div>
     ),
   },
   {
-    icon: Share2,
+    icon: Users,
     number: "05",
-    title: "Data Sharing",
+    title: "Client Responsibilities",
     content: (
       <>
-        <div className="bg-gradient-to-r from-white/10 to-transparent border border-white/20 rounded-xl p-4 mb-6 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-          <p className="text-white font-medium drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">We do not sell or rent your personal data.</p>
-        </div>
-        <p className="mb-4">Your information may be shared only:</p>
-        <ul className="space-y-3">
+        <p className="mb-6">Clients agree to:</p>
+        <div className="grid sm:grid-cols-1 gap-3">
           {[
-            "With trusted third-party tools (hosting, analytics, payment services)",
-            "If required by law or government authorities",
-            "To protect our legal rights or prevent fraud",
-          ].map((item, i) => (
-            <li key={i} className="flex items-start gap-3">
-              <div className="w-5 h-5 rounded bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <Lock size={12} className="text-white/60" />
-              </div>
-              <span className="text-white/70">{item}</span>
-            </li>
-          ))}
-        </ul>
-      </>
-    ),
-  },
-  {
-    icon: ShieldCheck,
-    number: "06",
-    title: "Data Security",
-    content: (
-      <p>
-        We use reasonable technical and organizational measures to protect your information. However, no method of transmission over the internet is completely secure.
-      </p>
-    ),
-  },
-  {
-    icon: FileKey,
-    number: "07",
-    title: "Client Confidentiality",
-    content: (
-      <p>
-        All client data, project details, and business information are treated as confidential and will not be disclosed without permission, except where legally required.
-      </p>
-    ),
-  },
-  {
-    icon: Scale,
-    number: "08",
-    title: "Your Rights",
-    content: (
-      <>
-        <p className="mb-6">You have the right to:</p>
-        <div className="grid sm:grid-cols-2 gap-3 mb-6">
-          {[
-            "Access your personal data",
-            "Request correction or deletion",
-            "Withdraw consent",
-            "Opt out of marketing communications",
+            "Provide accurate project requirements",
+            "Supply necessary content and approvals on time",
+            "Avoid unlawful or copyrighted materials without permission",
           ].map((item, i) => (
             <div key={i} className="flex items-center gap-3 bg-white/5 rounded-lg p-3 border border-white/10">
               <div className="w-2 h-2 rounded-full bg-white/40" />
@@ -156,39 +107,78 @@ const sections = [
             </div>
           ))}
         </div>
-        <p>
-          Contact us at{" "}
-          <a href="mailto:codexinfotechh@gmail.com" className="text-white hover:text-white/60 underline underline-offset-4 transition-colors">
-            codexinfotechh@gmail.com
-          </a>{" "}
-          to exercise these rights.
-        </p>
       </>
     ),
   },
   {
-    icon: Link2,
-    number: "09",
-    title: "Third-Party Links",
+    icon: AlertTriangle,
+    number: "06",
+    title: "Limitation of Liability",
+    content: (
+      <>
+        <p className="mb-6">We are not liable for:</p>
+        <div className="grid sm:grid-cols-1 gap-3 mb-6">
+          {[
+            "Loss of business or profits",
+            "Data loss caused by third-party services",
+            "Delays due to client-side issues or force majeure",
+          ].map((item, i) => (
+            <div key={i} className="flex items-center gap-3 bg-white/5 rounded-lg p-3 border border-white/10">
+              <div className="w-2 h-2 rounded-full bg-white/40" />
+              <span className="text-white/70 text-sm">{item}</span>
+            </div>
+          ))}
+        </div>
+        <div className="bg-gradient-to-r from-white/10 to-transparent border border-white/20 rounded-xl p-4 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+          <p className="text-white font-medium drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">Our liability is limited to the amount paid for the service.</p>
+        </div>
+      </>
+    ),
+  },
+  {
+    icon: XCircle,
+    number: "07",
+    title: "Termination",
+    content: (
+      <div className="space-y-4">
+        <p>Either party may terminate services with written notice.</p>
+        <p>Any completed work up to termination must be paid for.</p>
+      </div>
+    ),
+  },
+  {
+    icon: Blocks,
+    number: "08",
+    title: "Third-Party Services",
     content: (
       <p>
-        Our website may contain links to external websites. We are not responsible for their privacy practices.
+        We may use third-party tools, APIs, or hosting services. We are not responsible for their downtime or policy changes.
+      </p>
+    ),
+  },
+  {
+    icon: Scale,
+    number: "09",
+    title: "Governing Law",
+    content: (
+      <p>
+        These Terms are governed by the laws of India.
       </p>
     ),
   },
   {
     icon: RefreshCw,
     number: "10",
-    title: "Changes to This Policy",
+    title: "Changes to Terms",
     content: (
       <p>
-        We may update this Privacy Policy from time to time. Changes will be posted on this page.
+        We reserve the right to update these Terms at any time. Continued use of the website implies acceptance of the updated terms.
       </p>
     ),
   },
 ];
 
-export default function PrivacyPage() {
+export default function TermsPage() {
   return (
     <div className="min-h-screen bg-black text-white selection:bg-white selection:text-black">
       <Navigation />
@@ -199,7 +189,7 @@ export default function PrivacyPage() {
             <ScrollReveal>
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-                  <Lock size={20} className="text-white/60" />
+                  <FileText size={20} className="text-white/60" />
                 </div>
                 <span className="text-white/40 font-mono text-sm tracking-wider uppercase">Legal</span>
               </div>
@@ -207,13 +197,13 @@ export default function PrivacyPage() {
 
             <ScrollReveal delay={0.1}>
               <h1 className="text-[clamp(3rem,10vw,7rem)] leading-[0.9] tracking-tighter font-bold mb-6">
-                Privacy Policy
+                Terms & Conditions
               </h1>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
               <p className="text-xl text-white/50 max-w-2xl">
-                Your privacy is important to us. Learn how we collect, use, and protect your personal information.
+                Please read these terms carefully before using our services. By engaging with us, you agree to be bound by these conditions.
               </p>
             </ScrollReveal>
 
@@ -264,11 +254,11 @@ export default function PrivacyPage() {
                         </div>
                         <div>
                           <span className="text-white/30 font-mono text-sm">11</span>
-                          <h2 className="text-2xl md:text-3xl font-semibold text-white mt-1">Contact Us</h2>
+                          <h2 className="text-2xl md:text-3xl font-semibold text-white mt-1">Contact Information</h2>
                         </div>
                       </div>
                       <p className="text-white/60 mb-8 max-w-xl">
-                        If you have questions about this Privacy Policy, we&apos;re here to help.
+                        For questions regarding these Terms & Conditions:
                       </p>
                       <div className="grid sm:grid-cols-2 gap-4">
                         <a

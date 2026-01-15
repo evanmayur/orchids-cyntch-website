@@ -80,8 +80,8 @@ export default function Footer() {
 
           {/* Contact Section */}
           <div className="md:col-span-6 flex flex-col items-end">
-            <a
-                href="mailto:codexinfotechh@gmail.com"
+            <Link
+                href="/contact"
                 className="group relative bg-white/5 backdrop-blur-xl border border-white/10 px-12 py-10 rounded-2xl w-full max-w-[500px] flex items-center justify-between transition-all hover:bg-white/10 hover:border-white/20 overflow-hidden mb-12"
               >
                 {/* Liquid shine effect */}
@@ -89,7 +89,7 @@ export default function Footer() {
                 
                 <span className="text-2xl font-light tracking-tight">Contact Us</span>
                 <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
-              </a>
+              </Link>
 
               <div className="text-right space-y-6 max-w-[500px] w-full">
                 <div>
