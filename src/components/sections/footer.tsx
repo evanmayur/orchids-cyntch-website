@@ -40,12 +40,18 @@ export default function Footer() {
               Site index
             </h6>
             <ul className="space-y-4">
-              {["Home", "Work", "About", "Services", "Privacy Policy"].map((item) => (
+              {["Home", "About", "Services", "Privacy Policy"].map((item) => (
                 <li key={item}>
-                  <Link
-                    href={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
-                    className="text-[18px] text-white/80 hover:text-white transition-colors"
-                  >
+                    <Link
+                      href={
+                        item === "Home" 
+                          ? "/" 
+                          : item === "Privacy Policy" 
+                          ? "/privacy" 
+                          : `/${item.toLowerCase().replace(" ", "-")}`
+                      }
+                      className="text-[18px] text-white/80 hover:text-white transition-colors"
+                    >
                     {item}
                   </Link>
                 </li>

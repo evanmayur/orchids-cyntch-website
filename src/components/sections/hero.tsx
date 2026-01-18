@@ -109,7 +109,7 @@ const Hero = () => {
         .hero-title {
           font-family: var(--font-display);
           font-size: clamp(3rem, 9vw, 8.5rem);
-          line-height: 0.85;
+          line-height: 1.1;
           letter-spacing: -0.05em;
           font-weight: 400;
           text-transform: none;
@@ -117,7 +117,7 @@ const Hero = () => {
 
         @media (max-width: 768px) {
           .hero-title {
-            line-height: 1;
+            line-height: 1.1;
             gap: 0;
           }
         }
