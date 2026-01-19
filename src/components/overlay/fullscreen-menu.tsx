@@ -147,63 +147,55 @@ const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose }) => {
                     onClick={() => setNewsletterOpen(!newsletterOpen)}
                     className="flex items-center gap-3 group"
                   >
-                    <div className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white transition-colors" />
-                    <span className="text-[18px] group-hover:underline decoration-white/20 underline-offset-4">
-                      Newsletter Signup
-                    </span>
-                    {newsletterOpen && <X className="w-3 h-3 ml-2 opacity-60" />}
-                  </button>
-
-                  {newsletterOpen && (
-                    <div className="mt-6 p-6 rounded-lg bg-white/[0.03] border border-white/10 animate-in fade-in slide-in-from-top-4 duration-500">
-                      <p className="text-[14px] leading-relaxed mb-6 text-muted-foreground">
-                        Join our newsletter for fresh updates and exclusive studio
-                        insights.
-                      </p>
-                      <form className="flex flex-col gap-3" onSubmit={(e) => e.preventDefault()}>
-                        <div className="grid grid-cols-2 gap-2">
-                          <input
-                            type="text"
-                            placeholder="First name"
-                            className="bg-white/[0.05] border border-white/10 rounded px-4 py-2 text-sm focus:outline-none focus:border-white/30"
-                          />
-                          <input
-                            type="text"
-                            placeholder="Last name"
-                            className="bg-white/[0.05] border border-white/10 rounded px-4 py-2 text-sm focus:outline-none focus:border-white/30"
-                          />
-                        </div>
-                        <input
-                          type="email"
-                          placeholder="Email Address"
-                          className="bg-white/[0.05] border border-white/10 rounded px-4 py-2 text-sm focus:outline-none focus:border-white/30"
-                        />
-                        <button className="flex items-center justify-between px-6 py-2.5 mt-2 bg-white text-black rounded-full font-medium text-sm hover:bg-white/90 transition-colors">
-                          Submit Details
-                          <div className="w-1.5 h-1.5 rounded-full bg-black" />
-                        </button>
-                      </form>
-                    </div>
-                  )}
+                    Write Us
+                  </a>
                 </div>
               </div>
 
-              {/* Social Links */}
-              <div className="flex flex-col gap-6">
-                <span className="mono-label text-white/40 mb-2">Social</span>
-                <div className="flex flex-col gap-2">
-                  {["Instagram", "Facebook", "LinkedIn", "Awwwards", "Behance"].map(
-                    (social) => (
-                      <a
-                        key={social}
-                        href="#"
-                        className="text-[16px] hover:text-white/60 transition-colors py-0.5"
-                      >
-                        {social}
-                      </a>
-                    )
-                  )}
-                </div>
+              {/* Newsletter Toggle */}
+              <div className="relative mt-4">
+                <button
+                  onClick={() => setNewsletterOpen(!newsletterOpen)}
+                  className="flex items-center gap-3 group"
+                >
+                  <div className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white transition-colors" />
+                  <span className="text-[18px] group-hover:underline decoration-white/20 underline-offset-4">
+                    Newsletter Signup
+                  </span>
+                  {newsletterOpen && <X className="w-3 h-3 ml-2 opacity-60" />}
+                </button>
+
+                {newsletterOpen && (
+                  <div className="mt-6 p-6 rounded-lg bg-white/[0.03] border border-white/10 animate-in fade-in slide-in-from-top-4 duration-500">
+                    <p className="text-[14px] leading-relaxed mb-6 text-muted-foreground">
+                      Join our newsletter for fresh updates and exclusive studio
+                      insights.
+                    </p>
+                    <form className="flex flex-col gap-3" onSubmit={(e) => e.preventDefault()}>
+                      <div className="grid grid-cols-2 gap-2">
+                        <input
+                          type="text"
+                          placeholder="First name"
+                          className="bg-white/[0.05] border border-white/10 rounded px-4 py-2 text-sm focus:outline-none focus:border-white/30"
+                        />
+                        <input
+                          type="text"
+                          placeholder="Last name"
+                          className="bg-white/[0.05] border border-white/10 rounded px-4 py-2 text-sm focus:outline-none focus:border-white/30"
+                        />
+                      </div>
+                      <input
+                        type="email"
+                        placeholder="Email Address"
+                        className="bg-white/[0.05] border border-white/10 rounded px-4 py-2 text-sm focus:outline-none focus:border-white/30"
+                      />
+                      <button className="flex items-center justify-between px-6 py-2.5 mt-2 bg-white text-black rounded-full font-medium text-sm hover:bg-white/90 transition-colors">
+                        Submit Details
+                        <div className="w-1.5 h-1.5 rounded-full bg-black" />
+                      </button>
+                    </form>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -218,6 +210,10 @@ const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose }) => {
               <div className="hidden lg:block text-[14px] text-white/20 select-none uppercase tracking-widest font-mono">
                 © CODEX INFOTECH 2026
               </div>
+            </div>
+            <div className="hidden lg:block text-[14px] text-white/20 select-none uppercase tracking-widest font-mono">
+              © CODEX INFOTECH 2026
+            </div>
           </div>
         </div>
       </div>

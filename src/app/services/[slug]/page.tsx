@@ -245,86 +245,53 @@ function TimelineSection({ service }: { service: typeof servicesData[keyof typeo
 
 function ExamplesSection({ service }: { service: typeof servicesData[keyof typeof servicesData] }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const x = useTransform(scrollYProgress, [0.4, 0.9], ["0%", "-100%"]);
-
-  const firstPairOpacity = useTransform(scrollYProgress, [0, 0.15], [0, 1]);
-  const firstPairY = useTransform(scrollYProgress, [0, 0.15], [80, 0]);
-  
-  const secondPairOpacity = useTransform(scrollYProgress, [0.5, 0.65], [0, 1]);
-  const secondPairY = useTransform(scrollYProgress, [0.5, 0.65], [80, 0]);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={containerRef} className="relative" style={{ height: "300vh" }}>
-      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
-        <div className="px-[5vw] w-full mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="flex items-center gap-4 mb-10">
-              <div className="w-10 h-[1px] bg-white/20" />
-              <h2 className="mono-label text-muted-foreground uppercase tracking-widest">Success Stories</h2>
-            </div>
+    <section ref={ref} className="relative py-32 px-[5vw]">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="flex items-center gap-4 mb-10">
+            <div className="w-10 h-[1px] bg-white/20" />
+            <h2 className="mono-label text-muted-foreground uppercase tracking-widest">Success Stories</h2>
+          </div>
 
-            <h2 className="text-5xl md:text-7xl font-normal leading-[0.9] tracking-tighter">
-              Featured <br />
-              <span className="italic text-muted-foreground">Case Studies</span>
-            </h2>
-          </motion.div>
-        </div>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[0.9] tracking-tighter mb-16">
+            Featured <br />
+            <span className="italic text-muted-foreground">Case Studies</span>
+          </h2>
+        </motion.div>
 
-        <motion.div style={{ x }} className="relative flex gap-6 px-[5vw]">
-          {service.examples.slice(0, 2).map((example, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          {service.examples.slice(0, 4).map((example, index) => (
             <motion.div
               key={index}
-              style={{ opacity: firstPairOpacity, y: firstPairY }}
-              className="flex-shrink-0 w-[300px] md:w-[400px] bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 hover:bg-white/[0.07] transition-all duration-500 group"
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/[0.07] hover:border-white/20 transition-all duration-500 group"
             >
-              <div className="flex items-center gap-2 mb-6">
-                <span className="px-3 py-1 rounded-full bg-white/10 text-[10px] uppercase tracking-widest text-white/50">
+              <div className="flex items-center gap-2 mb-4 md:mb-6">
+                <span className="px-2 md:px-3 py-1 rounded-full bg-white/10 text-[9px] md:text-[10px] uppercase tracking-widest text-white/50">
                   {example.industry}
                 </span>
-                <span className="ml-auto text-white/20 text-sm font-mono">0{index + 1}</span>
+                <span className="ml-auto text-white/20 text-xs md:text-sm font-mono">0{index + 1}</span>
               </div>
-              <h3 className="text-xl md:text-2xl font-normal mb-4 group-hover:text-white transition-colors">
+              <h3 className="text-lg md:text-xl lg:text-2xl font-normal mb-3 md:mb-4 group-hover:text-white transition-colors line-clamp-2">
                 {example.title}
               </h3>
-              <div className="pt-6 border-t border-white/10">
-                <span className="mono-label text-white/40 text-xs uppercase tracking-widest">Result</span>
-                <p className="text-lg md:text-xl font-light text-white/80 mt-2">{example.result}</p>
+              <div className="pt-4 md:pt-6 border-t border-white/10">
+                <span className="mono-label text-white/40 text-[10px] md:text-xs uppercase tracking-widest">Result</span>
+                <p className="text-base md:text-lg lg:text-xl font-light text-white/80 mt-2">{example.result}</p>
               </div>
             </motion.div>
           ))}
-          
-          {service.examples.slice(2, 4).map((example, index) => (
-            <motion.div
-              key={index + 2}
-              style={{ opacity: secondPairOpacity, y: secondPairY }}
-              className="flex-shrink-0 w-[300px] md:w-[400px] bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 hover:bg-white/[0.07] transition-all duration-500 group"
-            >
-              <div className="flex items-center gap-2 mb-6">
-                <span className="px-3 py-1 rounded-full bg-white/10 text-[10px] uppercase tracking-widest text-white/50">
-                  {example.industry}
-                </span>
-                <span className="ml-auto text-white/20 text-sm font-mono">0{index + 3}</span>
-              </div>
-              <h3 className="text-xl md:text-2xl font-normal mb-4 group-hover:text-white transition-colors">
-                {example.title}
-              </h3>
-              <div className="pt-6 border-t border-white/10">
-                <span className="mono-label text-white/40 text-xs uppercase tracking-widest">Result</span>
-                <p className="text-lg md:text-xl font-light text-white/80 mt-2">{example.result}</p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

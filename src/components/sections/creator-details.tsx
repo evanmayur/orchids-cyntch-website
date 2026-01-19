@@ -1,4 +1,3 @@
-thoughtfulness
 import React from "react";
 import Image from "next/image";
 import { Clock, BookOpen, Eye } from "lucide-react";
