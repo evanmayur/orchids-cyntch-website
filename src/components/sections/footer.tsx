@@ -42,16 +42,16 @@ export default function Footer() {
             <ul className="space-y-4">
               {["Home", "About", "Services", "Privacy Policy"].map((item) => (
                 <li key={item}>
-                    <Link
-                      href={
-                        item === "Home" 
-                          ? "/" 
-                          : item === "Privacy Policy" 
-                          ? "/privacy" 
+                  <Link
+                    href={
+                      item === "Home"
+                        ? "/"
+                        : item === "Privacy Policy"
+                          ? "/privacy"
                           : `/${item.toLowerCase().replace(" ", "-")}`
-                      }
-                      className="text-[18px] text-white/80 hover:text-white transition-colors"
-                    >
+                    }
+                    className="text-[18px] text-white/80 hover:text-white transition-colors"
+                  >
                     {item}
                   </Link>
                 </li>
@@ -65,11 +65,10 @@ export default function Footer() {
               Social
             </h6>
             <ul className="space-y-4">
-{[
-                  { name: "Instagram", url: "#" },
-                  { name: "Facebook", url: "#" },
-                  { name: "LinkedIn", url: "#" },
-                ].map((social) => (
+              {[
+                { name: "Instagram", url: "https://www.instagram.com/codx.infotech" },
+                { name: "LinkedIn", url: "https://www.linkedin.com/company/codexinfotech/about/" },
+              ].map((social) => (
                 <li key={social.name}>
                   <a
                     href={social.url}
@@ -87,34 +86,34 @@ export default function Footer() {
           {/* Contact Section */}
           <div className="md:col-span-6 flex flex-col items-end">
             <Link
-                href="/contact"
-                className="group relative bg-white/5 backdrop-blur-xl border border-white/10 px-12 py-10 rounded-2xl w-full max-w-[500px] flex items-center justify-between transition-all hover:bg-white/10 hover:border-white/20 overflow-hidden mb-12"
-              >
-                {/* Liquid shine effect */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                
-                <span className="text-2xl font-light tracking-tight">Contact Us</span>
-                <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
-              </Link>
+              href="/contact"
+              className="group relative bg-white/5 backdrop-blur-xl border border-white/10 px-12 py-10 rounded-2xl w-full max-w-[500px] flex items-center justify-between transition-all hover:bg-white/10 hover:border-white/20 overflow-hidden mb-12"
+            >
+              {/* Liquid shine effect */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
 
-              <div className="text-right space-y-6 max-w-[500px] w-full">
-                <div>
-                  <p className="text-white/60 text-lg mb-1">Tell us about your project.</p>
-                  <p className="text-white text-lg">Let&apos;s collaborate.</p>
+              <span className="text-2xl font-light tracking-tight">Contact Us</span>
+              <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
+            </Link>
+
+            <div className="text-right space-y-6 max-w-[500px] w-full">
+              <div>
+                <p className="text-white/60 text-lg mb-1">Tell us about your project.</p>
+                <p className="text-white text-lg">Let&apos;s collaborate.</p>
+              </div>
+
+              <div className="flex flex-col items-end gap-2 text-white/80">
+                <div className="text-[14px] font-mono mb-4">
+                  {time} (IST)
                 </div>
-
-                <div className="flex flex-col items-end gap-2 text-white/80">
-                  <div className="text-[14px] font-mono mb-4">
-                    {time} (IST)
-                  </div>
-                  <a href="tel:+917862003533" className="flex items-center gap-3 hover:text-white transition-colors group">
-                    <span className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white" />
-                    +91 78620 03533
-                  </a>
-                  <a href="mailto:codexinfotechh@gmail.com" className="flex items-center gap-3 hover:text-white transition-colors group">
-                    <span className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white" />
-                    Write Us
-                  </a>
+                <a href="tel:+917862003533" className="flex items-center gap-3 hover:text-white transition-colors group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white" />
+                  +91 78620 03533
+                </a>
+                <a href="mailto:codexinfotechh@gmail.com" className="flex items-center gap-3 hover:text-white transition-colors group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-white" />
+                  Write Us
+                </a>
 
               </div>
             </div>
