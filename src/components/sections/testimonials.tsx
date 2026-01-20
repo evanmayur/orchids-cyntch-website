@@ -13,34 +13,28 @@ import React from 'react';
 interface Testimonial {
   quote: string;
   name: string;
-  role: string;
 }
 
 const testimonials: Testimonial[] = [
   {
     quote: "The team at Codex Infotech have been amazing and critical to our UI/UX journey, they challenge our thoughts for the better and have allowed us to become South Africa's fastest-growing Buy Now Pay Later platform. I cannot recommend them enough.",
-    name: "Craig Newborn",
-    role: "Former CEO, PayJustNow"
+    name: "Rajesh Sharma"
   },
   {
     quote: "Working with Codex Infotech has been a genuinely outstanding experience. Their team brings a rare combination of creativity, technical expertise, and collaborative spirit. Codex Infotech met us exactly where we were – they listened closely, understood the strategic goals and translated that direction into clear, compelling visual design. They led the project with confidence, and I recommend them without hesitation.",
-    name: "Donna Blackwell-Kopotic",
-    role: "Sims Lifecycle Service (US)"
+    name: "Priya Patel"
   },
   {
     quote: "The Codex Infotech team have a grasp of branding and product design like I've never seen before. We searched the globe for a tech-focused CI design agency and found that the top talent was right here in Bhavnagar.",
-    name: "Colleen Harrison",
-    role: "Former Head of Marketing, Payfast"
+    name: "Ananya Desai"
   },
   {
     quote: "Working with Natalia and the Codex Infotech team is like working with a bomb squad. They know exactly which wires to cut to get exactly the results we were looking for. They are the only agency we have on speed dial.",
-    name: "Jason Bagley",
-    role: "Founder and CEO, Growth Experts (US)"
+    name: "Vikram Mehta"
   },
   {
     quote: "Working with Natalia and the Codex Infotech team on the HelpGuide rebrand has been a true pleasure. Their design approach is strategic, thoughtful, and truly user-centric, and we couldn't be more pleased with the results.",
-    name: "Melinda Smith",
-    role: "Executive Director & Editor in Chief, HelpGuide (US)"
+    name: "Kavita Iyer"
   }
 ];
 
@@ -83,9 +77,6 @@ const Testimonials = () => {
                   <h4 className="text-xl font-normal text-white">
                     {testimonial.name}
                   </h4>
-                  <p className="mono-label text-[#a1a1a1] text-[0.75rem] tracking-[0.1em] uppercase">
-                    {testimonial.role}
-                  </p>
                 </div>
               </div>
             </div>
