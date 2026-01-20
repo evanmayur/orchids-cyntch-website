@@ -30,7 +30,17 @@ export function LoadingScreen() {
         setProgress(100);
         setTimeout(() => {
           setIsExiting(true);
-          setTimeout(() => setIsLoading(false), 800);
+          setTimeout(() => {
+            setIsLoading(false);
+            // Scroll to hero section after loading completes
+            const heroSection = document.getElementById('hero');
+            if (heroSection) {
+              heroSection.scrollIntoView({ behavior: 'instant' });
+            } else {
+              // Fallback: scroll to top
+              window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+          }, 800);
         }, 300);
       }
     };

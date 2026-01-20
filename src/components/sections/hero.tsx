@@ -21,13 +21,14 @@ const Hero = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section 
+    <section
+      id="hero"
       ref={containerRef}
       className="relative w-full h-[100vh] min-h-screen overflow-hidden flex flex-col items-center justify-center bg-black"
       data-theme="dark"
     >
       {/* Background Video */}
-      <motion.figure 
+      <motion.figure
         style={{ y: videoY, willChange: "transform" }}
         className="absolute inset-0 w-full h-full z-0 pointer-events-none transform-gpu"
       >
@@ -44,11 +45,11 @@ const Hero = () => {
       </motion.figure>
 
       {/* Main Content Overlay */}
-      <motion.div 
+      <motion.div
         style={{ y: textY, opacity }}
         className="relative z-10 w-full px-[5vw] flex flex-col items-center justify-center text-center pointer-events-none"
       >
-        
+
         {/* Large Split-Text Headline */}
         <h1 className="hero-title flex flex-col md:flex-row items-center justify-center gap-[0.5em] md:gap-[2vw] text-white select-none">
           <span className="block overflow-hidden">
@@ -73,9 +74,9 @@ const Hero = () => {
             <g fill="none" stroke="white" strokeWidth="0.5">
               <circle cx="240" cy="240" r="120" className="animate-[spin_12s_linear_infinite]" strokeOpacity="0.3" strokeDasharray="4 8" />
               <circle cx="240" cy="240" r="160" className="animate-[spin_20s_linear_infinite_reverse]" strokeOpacity="0.15" strokeDasharray="1 10" />
-              <path 
-                d="M 240,80 C 240,80 320,160 320,240 C 320,320 240,400 240,400 C 240,400 160,320 160,240 C 160,160 240,80 240,80 Z" 
-                className="animate-pulse" 
+              <path
+                d="M 240,80 C 240,80 320,160 320,240 C 320,320 240,400 240,400 C 240,400 160,320 160,240 C 160,160 240,80 240,80 Z"
+                className="animate-pulse"
                 strokeOpacity="0.4"
               />
             </g>
@@ -84,7 +85,7 @@ const Hero = () => {
       </motion.div>
 
       {/* "Scroll to discover" Indicator */}
-      <motion.div 
+      <motion.div
         style={{ opacity }}
         className="absolute bottom-[4vh] left-1/2 -translate-x-1/2 z-20 hidden md:block select-none"
       >
