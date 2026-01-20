@@ -35,7 +35,7 @@ const IntroExperience = () => {
   });
 
   return (
-    <section 
+    <section
       id="intro-experience"
       ref={containerRef}
       className="relative w-full bg-background text-foreground section-spacing overflow-hidden"
@@ -80,14 +80,15 @@ const IntroExperience = () => {
                     key={index}
                     style={{ y, willChange: "transform" }}
                     className={`relative overflow-hidden rounded-lg bg-white/5 transform-gpu ${index === 0 || index === 3 || index === 4 || index === 7
-                        ? 'aspect-[4/5]'
-                        : 'aspect-[3/4]'
+                      ? 'aspect-[4/5]'
+                      : 'aspect-[3/4]'
                       } ${index % 3 === 0 ? 'mt-12 lg:mt-24' : ''}`}
                   >
                     <Image
                       src={src}
                       alt={`Studio experience ${index + 1}`}
                       fill
+                      unoptimized
                       className="object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out hover:scale-105"
                       sizes="(max-width: 768px) 50vw, 30vw"
                     />
