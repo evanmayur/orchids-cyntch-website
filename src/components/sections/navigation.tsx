@@ -25,8 +25,8 @@ export default function Navigation() {
           aria-label="Codex Infotech Home"
         >
           <Image
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/ce1589ff-8399-40fb-afc8-6e6951d6460b/Remove-Background-Preview-1768385708544.png?width=8000&height=8000&resize=contain"
-            alt="Codex Infotech Logo"
+            src="/logo.png"
+            alt="CX Codex Logo"
             width={500}
             height={200}
             className="h-28 md:h-40 w-auto transition-transform duration-500 group-hover:scale-105 relative z-10"
